@@ -135,10 +135,8 @@ const Header = () => {
       clearTimeout(dropdownTimeout)
       setDropdownTimeout(null)
     }
-    // Immediately clear previous state to prevent ghost border
-    setSelectedService(null)
-    // Use setTimeout to set new state after a brief moment
-    setTimeout(() => setSelectedService(serviceId), 10)
+    // Immediately set the new service for instant response
+    setSelectedService(serviceId)
   }
 
   const handleDropdownEnter = (itemName: string) => {
@@ -157,7 +155,7 @@ const Header = () => {
     const timeout = setTimeout(() => {
       setActiveDropdown(null)
       setSelectedService(null)
-    }, 150) // Reduced delay to minimize ghost border effect
+    }, 50) // Minimal delay for smooth interaction
     setDropdownTimeout(timeout)
   }
 
@@ -384,12 +382,7 @@ const Header = () => {
         )}
       </div>
 
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="particle top-1/4 left-1/4 animate-pulse-slow"></div>
-        <div className="particle top-1/3 right-1/3 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-        <div className="particle bottom-1/4 left-1/3 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-      </div>
+
     </header>
   )
 }
