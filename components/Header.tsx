@@ -163,8 +163,8 @@ const Header = () => {
               <Image
                 src="/TriwayTechnologies.png"
                 alt="Triway Technologies"
-                width={120}
-                height={60}
+                width={160}
+                height={80}
                 className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </a>
@@ -176,17 +176,17 @@ const Header = () => {
               <div key={item.name} className="relative">
                 {item.hasDropdown ? (
                   <div
-                    className="nav-link flex items-center cursor-pointer"
+                    className="nav-link flex items-center cursor-pointer group"
                     onMouseEnter={() => handleDropdownEnter(item.name)}
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <span className="text-sm font-medium">{item.name}</span>
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item.name}</span>
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 text-gray-500 group-hover:text-blue-600" />
                   </div>
                 ) : (
                   <a
                     href={item.href}
-                    className="nav-link text-sm font-medium"
+                    className="nav-link text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300"
                   >
                     {item.name}
                   </a>
@@ -294,7 +294,7 @@ const Header = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-primary-500 transition-colors p-2 rounded-lg hover:bg-gray-100"
+              className="text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
