@@ -156,7 +156,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
-        ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
+        ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-2xl' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,7 +165,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center group">
               <Image
-                src="/TriwayTechnologies (White).png"
+                src={scrolled ? "/TriwayTechnologies.png" : "/TriwayTechnologies (White).png"}
                 alt="Triway Technologies"
                 width={160}
                 height={80}
@@ -177,23 +177,37 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 ml-auto">
             {navigation.map((item) => (
-              <div key={item.name} className="relative">
+              <div key={item.name} className="relative border-0 outline-none">
                 {item.hasDropdown ? (
                   <div
-                    className="nav-link flex items-center cursor-pointer group"
+                    className="nav-link flex items-center cursor-pointer group border-0 outline-none"
                     onMouseEnter={() => handleDropdownEnter(item.name)}
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors duration-300">{item.name}</span>
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 text-white/70 group-hover:text-white" />
+                    <span className={`text-sm font-medium transition-colors duration-300 ${
+                      scrolled 
+                        ? 'text-gray-700 group-hover:text-blue-600' 
+                        : 'text-white/90 group-hover:text-white'
+                    }`}>{item.name}</span>
+                    <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 ${
+                      scrolled 
+                        ? 'text-gray-500 group-hover:text-blue-600' 
+                        : 'text-white/70 group-hover:text-white'
+                    }`} />
                   </div>
                 ) : (
                   <a
                     href={item.href}
-                    className="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors duration-300 relative group"
+                    className={`nav-link text-sm font-medium transition-colors duration-300 relative group border-0 outline-none ${
+                      scrolled 
+                        ? 'text-gray-700 hover:text-blue-600' 
+                        : 'text-white/90 hover:text-white'
+                    }`}
                   >
                     {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                      scrolled ? 'bg-blue-600' : 'bg-white'
+                    }`}></span>
                   </a>
                 )}
 
@@ -299,7 +313,11 @@ const Header = () => {
           <div className="hidden lg:flex items-center ml-8">
             <a
               href="/contact"
-              className="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium rounded-lg hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105 ${
+                scrolled 
+                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg' 
+                  : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20'
+              }`}
             >
               Contact Us
             </a>
@@ -309,7 +327,11 @@ const Header = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white/90 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
+              className={`transition-colors p-2 rounded-lg ${
+                scrolled 
+                  ? 'text-gray-600 hover:text-blue-600 hover:bg-gray-100' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -319,20 +341,34 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-xl border-t border-white/10 rounded-b-2xl shadow-2xl">
+            <div className={`px-2 pt-2 pb-3 space-y-1 backdrop-blur-xl rounded-b-2xl shadow-2xl ${
+              scrolled 
+                ? 'bg-white/95 border-t border-gray-200' 
+                : 'bg-black/95 border-t border-white/10'
+            }`}>
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-3 text-base font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                  className={`block px-3 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
+                    scrolled 
+                      ? 'text-gray-600 hover:text-blue-600 hover:bg-gray-100' 
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
                 >
                   {item.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-white/10 mt-4">
+              <div className={`pt-4 border-t mt-4 ${
+                scrolled ? 'border-gray-200' : 'border-white/10'
+              }`}>
                 <a
                   href="/contact"
-                  className="block px-3 py-3 text-base font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                  className={`block px-3 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
+                    scrolled 
+                      ? 'text-gray-600 hover:text-blue-600 hover:bg-gray-100' 
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
                 >
                   Contact Us
                 </a>
