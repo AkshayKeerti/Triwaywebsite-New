@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { Award, Clock, Users, Target, CheckCircle, Sparkles, Zap, Globe, Shield, Cpu } from 'lucide-react'
 
 const AboutSection = () => {

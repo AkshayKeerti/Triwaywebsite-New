@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowUp, Sparkles, Globe, Shield, Zap } from 'lucide-react'
 import Image from 'next/image'
 

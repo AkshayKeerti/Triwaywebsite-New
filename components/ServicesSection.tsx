@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   Cloud, 
   Shield, 
@@ -13,9 +13,7 @@ import {
   CheckCircle,
   Sparkles,
   Target,
-  Globe,
-  Cpu,
-  Database
+  Globe
 } from 'lucide-react'
 
 const ServicesSection = () => {

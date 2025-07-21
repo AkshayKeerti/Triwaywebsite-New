@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown, Zap, Cloud, Shield, Server, Code, Palette, Users, ArrowRight, Sparkles, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 
