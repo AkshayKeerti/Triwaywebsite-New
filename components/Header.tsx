@@ -130,7 +130,15 @@ const Header = () => {
   ]
 
   const handleServiceHover = (serviceId: string) => {
-    setSelectedService(serviceId)
+    // Clear any existing timeout to prevent state conflicts
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout)
+      setDropdownTimeout(null)
+    }
+    // Immediately clear previous state to prevent ghost border
+    setSelectedService(null)
+    // Use setTimeout to set new state after a brief moment
+    setTimeout(() => setSelectedService(serviceId), 10)
   }
 
   const handleDropdownEnter = (itemName: string) => {
@@ -149,7 +157,7 @@ const Header = () => {
     const timeout = setTimeout(() => {
       setActiveDropdown(null)
       setSelectedService(null)
-    }, 300) // 300ms delay before closing
+    }, 150) // Reduced delay to minimize ghost border effect
     setDropdownTimeout(timeout)
   }
 
@@ -218,22 +226,20 @@ const Header = () => {
                     onMouseEnter={() => handleDropdownEnter(item.name)}
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <div className="grid grid-cols-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+                    <div className="grid grid-cols-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden h-full">
                       {/* Left Column - Service Categories */}
-                      <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-6">
-                        <div className="flex items-center justify-between mb-6">
+                      <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-6 overflow-y-auto">
+                        <div className="flex items-center justify-between mb-4">
                           <h3 className="text-xl font-bold text-white">IT Services</h3>
                           <ArrowUpRight className="h-5 w-5 text-blue-400" />
                         </div>
                         
-                        <div className="space-y-2">
+                        <div className="space-y-1">
                           {services.map((service) => (
                             <div
                               key={service.id}
-                              className={`p-3 rounded-lg cursor-pointer transition-all duration-300 flex items-center justify-between group ${
-                                selectedService === service.id 
-                                  ? 'bg-white/10 border border-white/20' 
-                                  : 'hover:bg-white/5'
+                              className={`p-2 rounded-lg cursor-pointer service-item flex items-center justify-between group ${
+                                selectedService === service.id ? 'selected' : ''
                               }`}
                               onMouseEnter={() => handleServiceHover(service.id)}
                             >
@@ -250,17 +256,17 @@ const Header = () => {
                       </div>
 
                       {/* Right Column - Service Details */}
-                      <div className="bg-white p-6 relative">
+                      <div className="bg-white p-6 relative overflow-y-auto">
                         {/* Background Pattern */}
                         <div className="absolute inset-0 opacity-5">
                           <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-blue-500 rounded-full"></div>
                           <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-purple-500 rounded-full"></div>
                         </div>
                         
-                        <div className="relative z-10">
+                        <div className="relative z-10 h-full">
                           {selectedService ? (
-                            <div className="space-y-6">
-                              <div className="flex items-center space-x-3 mb-6">
+                            <div className="space-y-4">
+                              <div className="flex items-center space-x-3 mb-4">
                                 {(() => {
                                   const service = services.find(s => s.id === selectedService)
                                   return service ? (
@@ -277,13 +283,13 @@ const Header = () => {
                                 })()}
                               </div>
                               
-                              <div className="grid grid-cols-2 gap-4">
+                              <div className="grid grid-cols-2 gap-3">
                                 {(() => {
                                   const service = services.find(s => s.id === selectedService)
                                   return service ? (
                                     service.items.map((item, index) => (
-                                      <div key={index} className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-                                        <h5 className="font-semibold text-gray-900 mb-2 text-sm">{item.title}</h5>
+                                      <div key={index} className="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
+                                        <h5 className="font-semibold text-gray-900 mb-1 text-sm">{item.title}</h5>
                                         <p className="text-xs text-gray-600 leading-relaxed">{item.description}</p>
                                       </div>
                                     ))
