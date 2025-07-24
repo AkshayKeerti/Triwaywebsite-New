@@ -108,6 +108,7 @@ const TestimonialsSection = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
+      {/* Contained content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in-up">
@@ -146,46 +147,53 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Carousel */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             What Our Clients Say
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+        </div>
+      </div>
+      
+      {/* Full-width carousel container */}
+      <div className="w-full relative">
+        {/* First Row - Moving Left */}
+        <div className="relative overflow-hidden mb-8">
+          <div className="flex animate-scroll-left">
+            {/* Duplicate testimonials for seamless loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
-                className="card p-8 group hover:shadow-xl transition-all duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="card p-4 mx-2 min-w-[280px] max-w-[280px] group hover:shadow-xl transition-all duration-300 flex-shrink-0"
               >
                 {/* Quote Icon */}
-                <div className="mb-6">
-                  <Quote className="h-8 w-8 text-accent-500" />
+                <div className="mb-3">
+                  <Quote className="h-5 w-5 text-accent-500" />
                 </div>
 
                 {/* Rating */}
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-2">
                   <div className="flex text-yellow-400">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
+                      <Star key={i} className="h-3 w-3 fill-current" />
                     ))}
                   </div>
-                  <span className="ml-2 text-sm text-gray-500">({testimonial.rating}.0)</span>
+                  <span className="ml-1 text-xs text-gray-500">({testimonial.rating}.0)</span>
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-600 mb-6 italic leading-relaxed">
+                <p className="text-gray-600 mb-3 italic leading-relaxed text-xs line-clamp-3">
                   "{testimonial.content}"
                 </p>
 
                 {/* Results */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Results:</h4>
-                  <div className="space-y-2">
-                    {testimonial.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="h-4 w-4 text-accent-500 mr-3 flex-shrink-0" />
-                        {result}
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-900 mb-1">Key Results:</h4>
+                  <div className="space-y-0.5">
+                    {testimonial.results.slice(0, 2).map((result, resultIndex) => (
+                      <div key={resultIndex} className="flex items-center text-xs text-gray-600">
+                        <CheckCircle className="h-3 w-3 text-accent-500 mr-1.5 flex-shrink-0" />
+                        <span className="truncate">{result}</span>
                       </div>
                     ))}
                   </div>
@@ -193,13 +201,13 @@ const TestimonialsSection = () => {
 
                 {/* Author */}
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mr-4">
-                    <Users className="h-6 w-6 text-white" />
+                  <div className="w-6 h-6 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mr-2">
+                    <Users className="h-3 w-3 text-white" />
                   </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
-                    <div className="text-sm text-accent-500 font-medium">{testimonial.company}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-semibold text-gray-900 text-xs truncate">{testimonial.name}</div>
+                    <div className="text-xs text-gray-500 truncate">{testimonial.role}</div>
+                    <div className="text-xs text-accent-500 font-medium truncate">{testimonial.company}</div>
                   </div>
                 </div>
               </div>
@@ -207,7 +215,67 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* Second Row - Moving Right */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll-right">
+            {/* Duplicate testimonials in reverse order for opposite direction */}
+            {[...testimonials.reverse(), ...testimonials.reverse()].map((testimonial, index) => (
+              <div
+                key={index}
+                className="card p-4 mx-2 min-w-[280px] max-w-[280px] group hover:shadow-xl transition-all duration-300 flex-shrink-0"
+              >
+                {/* Quote Icon */}
+                <div className="mb-3">
+                  <Quote className="h-5 w-5 text-accent-500" />
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center mb-2">
+                  <div className="flex text-yellow-400">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 fill-current" />
+                    ))}
+                  </div>
+                  <span className="ml-1 text-xs text-gray-500">({testimonial.rating}.0)</span>
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-600 mb-3 italic leading-relaxed text-xs line-clamp-3">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Results */}
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-900 mb-1">Key Results:</h4>
+                  <div className="space-y-0.5">
+                    {testimonial.results.slice(0, 2).map((result, resultIndex) => (
+                      <div key={resultIndex} className="flex items-center text-xs text-gray-600">
+                        <CheckCircle className="h-3 w-3 text-accent-500 mr-1.5 flex-shrink-0" />
+                        <span className="truncate">{result}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Author */}
+                <div className="flex items-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mr-2">
+                    <Users className="h-3 w-3 text-white" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-semibold text-gray-900 text-xs truncate">{testimonial.name}</div>
+                    <div className="text-xs text-gray-500 truncate">{testimonial.role}</div>
+                    <div className="text-xs text-accent-500 font-medium truncate">{testimonial.company}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      {/* CTA Section - Back to contained layout */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mt-20">
         <div className="text-center">
           <div className="card-glow p-12 max-w-4xl mx-auto relative overflow-hidden">
             {/* Background Pattern */}
