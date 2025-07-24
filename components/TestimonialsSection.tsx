@@ -10,7 +10,8 @@ import {
   ArrowRight,
   Sparkles,
   Target,
-  Globe
+  Globe,
+  Zap
 } from 'lucide-react'
 
 const TestimonialsSection = () => {
@@ -206,7 +207,6 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-
         {/* CTA Section */}
         <div className="text-center">
           <div className="card-glow p-12 max-w-4xl mx-auto relative overflow-hidden">
@@ -215,30 +215,30 @@ const TestimonialsSection = () => {
             
             <div className="relative z-10">
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
-                Ready to Join Our Success Stories?
+                Ready to Experience the Triway Difference?
               </h3>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Let's create your success story together. Join hundreds of satisfied clients who have transformed their business with Triway.
+                Join hundreds of satisfied clients who have transformed their business with our proven solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a href="/contact" className="btn-primary group">
                   <span className="relative z-10 flex items-center">
-                    <Target className="mr-2 h-5 w-5" />
+                    <Zap className="mr-2 h-5 w-5" />
                     Start Your Success Story
                   </span>
                 </a>
                 <a href="/case-studies" className="btn-secondary group">
                   <span className="relative z-10 flex items-center">
                     <ArrowRight className="mr-2 h-5 w-5" />
-                    View All Case Studies
+                    View Case Studies
                   </span>
                 </a>
               </div>
             </div>
             
             {/* Floating Elements */}
-            <div className="absolute top-4 right-4 w-16 h-16 bg-accent-500/20 rounded-full animate-float"></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 bg-primary-500/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-4 right-4 w-16 h-16 bg-secondary-500/20 rounded-full animate-float"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-accent-500/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
           </div>
         </div>
       </div>
