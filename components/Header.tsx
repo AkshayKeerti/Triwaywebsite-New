@@ -24,6 +24,48 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Helper function to generate service URLs
+  const getServiceUrl = (categoryId: string, serviceTitle: string) => {
+    const slugMap: { [key: string]: string } = {
+      'End-to-End IT Support & Outsourcing': 'end-to-end-it-support',
+      'AMC & Vendor Support': 'amc-vendor-support',
+      'Project & Facility Management': 'project-facility-management',
+      'Incident Response & IT Consulting': 'incident-response-consulting',
+      'Infrastructure & Software Migration': 'infrastructure-software-migration',
+      'Virtualization & Telecom Services': 'virtualization-telecom-services',
+      'Cloud Infrastructure': 'cloud-infrastructure',
+      'Cloud Migrations & Management': 'cloud-migrations-management',
+      'SaaS Tools': 'saas-tools',
+      'Microsoft & Zoho Ecosystems': 'microsoft-zoho-ecosystems',
+      'Network, Application & Endpoint Security': 'network-application-endpoint-security',
+      'Threat Detection': 'threat-detection',
+      'Identity & Access Management': 'identity-access-management',
+      'Cybersecurity Consulting': 'cybersecurity-consulting',
+      'On-Prem Servers & Networking': 'on-prem-servers-networking',
+      'Hardware Solutions': 'hardware-solutions',
+      'Power Backup & Physical Infra Setup': 'power-backup-physical-infra',
+      'Infrastructure Monitoring & Support': 'infrastructure-monitoring-support',
+      'Generative AI': 'generative-ai',
+      'Conversational AI': 'conversational-ai',
+      'Agentic AI': 'agentic-ai',
+      'Predictive AI': 'predictive-ai',
+      'CoPilot Solutions': 'copilot-solutions',
+      'RPA & Workflow Automation': 'rpa-workflow-automation',
+      'Custom Software & App Development': 'custom-software-app-development',
+      'Industry-Specific Solutions': 'industry-specific-solutions',
+      'Web & Mobile Technologies': 'web-mobile-technologies',
+      'UI/UX Design & Product Consulting': 'ui-ux-design-product-consulting',
+      'UI/UX Design': 'ui-ux-design',
+      'Product Design & Strategy': 'product-design-strategy',
+      'Design Systems & Prototyping': 'design-systems-prototyping',
+      'User Research & Journey Mapping': 'user-research-journey-mapping',
+      'Branding & Visual Design': 'branding-visual-design'
+    };
+    
+    const slug = slugMap[serviceTitle];
+    return slug ? `/services/${categoryId}/${slug}` : '#';
+  };
+
   const services = [
     {
       id: 'managed-services',
@@ -291,10 +333,18 @@ const Header = () => {
                                   const service = services.find(s => s.id === selectedService)
                                   return service ? (
                                     service.items.map((item, index) => (
-                                      <div key={index} className="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-                                        <h5 className="font-semibold text-gray-900 mb-1 text-sm">{item.title}</h5>
+                                      <a
+                                        key={index}
+                                        href={getServiceUrl(service.id, item.title)}
+                                        className="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 block group"
+                                      >
+                                        <h5 className="font-semibold text-gray-900 mb-1 text-sm group-hover:text-primary-500 transition-colors">{item.title}</h5>
                                         <p className="text-xs text-gray-600 leading-relaxed">{item.description}</p>
-                                      </div>
+                                        <div className="flex items-center justify-between mt-2">
+                                          <span className="text-xs text-primary-500 font-medium">Learn More</span>
+                                          <ArrowRight className="h-3 w-3 text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        </div>
+                                      </a>
                                     ))
                                   ) : null
                                 })()}
