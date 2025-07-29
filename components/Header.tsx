@@ -281,8 +281,9 @@ const Header = () => {
                         
                         <div className="space-y-1">
                           {services.map((service) => (
-                            <div
+                            <a
                               key={service.id}
+                              href={`/services/${service.id}`}
                               className={`p-2 rounded-lg cursor-pointer service-item flex items-center justify-between group ${
                                 selectedService === service.id ? 'selected' : ''
                               }`}
@@ -295,7 +296,7 @@ const Header = () => {
                                 <span className="text-white font-medium">{service.name}</span>
                               </div>
                               <ArrowRight className="h-4 w-4 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </div>
+                            </a>
                           ))}
                         </div>
                       </div>
