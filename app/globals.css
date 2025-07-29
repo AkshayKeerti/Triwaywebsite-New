@@ -21,31 +21,7 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden;
-  }
-  
-  .btn-primary::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 opacity-0 transition-opacity duration-300;
-  }
-  
-  .btn-primary:hover::before {
-    @apply opacity-100;
-  }
-  
-  .btn-secondary {
-    @apply bg-transparent text-primary-500 font-semibold py-4 px-8 rounded-full border-2 border-primary-500 transition-all duration-300 transform hover:scale-105 hover:bg-primary-500 hover:text-white hover:shadow-lg relative overflow-hidden;
-  }
-  
-  .btn-secondary::before {
-    content: '';
-    @apply absolute inset-0 bg-primary-500 opacity-0 transition-opacity duration-300;
-  }
-  
-  .btn-secondary:hover::before {
-    @apply opacity-100;
-  }
+  /* Button styles are now handled by the Button component */
   
   .card {
     @apply bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105;

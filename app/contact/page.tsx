@@ -2,6 +2,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { ArrowRight, MapPin, Phone, Mail, Clock, Send, MessageCircle, Globe, Building, Users, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
+import Button from '../../components/ui/Button'
 
 export default function ContactPage() {
   const offices = [
@@ -74,10 +75,9 @@ export default function ContactPage() {
               Ready to transform your business? Let's discuss how our technology solutions can help you achieve your goals.
             </p>
             <div className="flex justify-center">
-              <a href="#contact-form" className="btn-primary">
+              <Button href="#contact-form" variant="primary" icon={ArrowRight}>
                 Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -244,13 +244,15 @@ export default function ContactPage() {
                   </label>
                 </div>
                 
-                <button
+                <Button
                   type="submit"
-                  className="w-full bg-primary-500 text-white py-4 px-8 rounded-full font-semibold hover:bg-primary-600 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  variant="primary"
+                  icon={Send}
+                  iconPosition="left"
+                  fullWidth
                 >
-                  <Send className="h-5 w-5" />
-                  <span>Send Message</span>
-                </button>
+                  Send Message
+                </Button>
               </form>
             </div>
             
@@ -376,12 +378,12 @@ export default function ContactPage() {
             Let's discuss your project and explore how we can help you achieve your business goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact-form" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="#contact-form" variant="outline">
               Start Your Project
-            </a>
-            <a href="/case-studies" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/case-studies" variant="ghost">
               View Our Work
-            </a>
+            </Button>
           </div>
         </div>
       </section>

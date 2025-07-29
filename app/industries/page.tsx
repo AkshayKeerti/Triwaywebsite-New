@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Button from '../../components/ui/Button'
 import { ArrowRight, TrendingUp, Users, Shield, Zap, Globe, Building, CreditCard, Car, GraduationCap, Briefcase, Award, Clock, DollarSign, CheckCircle, ShoppingBag, Heart, Settings, Truck, Plane, Camera, BookOpen, Palette, Database, Wifi, Smartphone, Monitor, Server, Cloud, Lock, BarChart3 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -227,10 +228,9 @@ export default function IndustriesPage() {
               helping organizations overcome unique challenges and achieve their goals.
             </p>
             <div className="flex justify-center">
-              <a href="#industries" className="btn-primary">
+              <Button href="#industries" variant="primary" icon={ArrowRight}>
                 Explore Industries
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -365,9 +365,9 @@ export default function IndustriesPage() {
                       View Case Studies
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
-                    <a href="/contact" className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-600 transition-colors duration-300">
+                    <Button href="/contact" variant="primary" size="sm">
                       Get Started
-                    </a>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -384,12 +384,12 @@ export default function IndustriesPage() {
             Let's discuss how our industry-specific solutions can help your organization achieve its goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="/contact" variant="outline">
               Start Your Project
-            </a>
-            <a href="/case-studies" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/case-studies" variant="ghost">
               View Case Studies
-            </a>
+            </Button>
           </div>
         </div>
       </section>

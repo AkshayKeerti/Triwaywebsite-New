@@ -2,6 +2,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Users, Target, Award, Globe, Heart, Zap, Shield, Code, Palette, Cloud, Server, Sparkles, ArrowRight, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
+import Button from '../../components/ui/Button'
 
 export default function AboutPage() {
   const values = [
@@ -80,10 +81,9 @@ export default function AboutPage() {
               cutting-edge AI, and exceptional design experiences.
             </p>
             <div className="flex justify-center">
-              <a href="#story" className="btn-primary">
+              <Button href="#story" variant="primary" icon={ArrowRight}>
                 Our Story
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -209,12 +209,12 @@ export default function AboutPage() {
             Let's discuss how we can help transform your business with our innovative technology solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="/contact" variant="outline">
               Get Started
-            </a>
-            <a href="/case-studies" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/case-studies" variant="ghost">
               View Our Work
-            </a>
+            </Button>
           </div>
         </div>
       </section>

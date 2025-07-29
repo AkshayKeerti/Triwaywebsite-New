@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Button from '../../components/ui/Button'
 import { ArrowRight, MapPin, Clock, DollarSign, Users, Heart, Zap, Shield, Code, Palette, Cloud, Server, Briefcase, Award, Globe, Star, CheckCircle, Send, Filter, Search } from 'lucide-react'
 import Image from 'next/image'
 
@@ -202,10 +203,9 @@ export default function CareersPage() {
               that transform businesses and impact millions of users worldwide.
             </p>
             <div className="flex justify-center">
-              <a href="#positions" className="btn-primary">
+              <Button href="#positions" variant="primary" icon={ArrowRight}>
                 View Open Positions
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -348,9 +348,9 @@ export default function CareersPage() {
                           <p className="text-primary-500 font-medium">{position.department}</p>
                         </div>
                       </div>
-                      <a href={`/careers/${position.id}`} className="bg-primary-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-600 transition-colors duration-300">
+                      <Button href={`/careers/${position.id}`} variant="primary" size="sm">
                         Apply Now
-                      </a>
+                      </Button>
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-6 mb-4">
@@ -412,12 +412,12 @@ export default function CareersPage() {
             We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="/contact" variant="outline">
               Send Resume
-            </a>
-            <a href="/about" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/about" variant="ghost">
               Learn More About Us
-            </a>
+            </Button>
           </div>
         </div>
       </section>

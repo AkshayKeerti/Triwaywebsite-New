@@ -1,6 +1,7 @@
 'use client'
 
 import { Award, Clock, Users, Target, CheckCircle, Sparkles, Zap, Globe, Shield, Cpu } from 'lucide-react'
+import Button from './ui/Button'
 
 const AboutSection = () => {
   const stats = [
@@ -100,12 +101,9 @@ const AboutSection = () => {
 
             {/* CTA */}
             <div>
-              <a href="/about" className="btn-primary group">
-                <span className="relative z-10 flex items-center">
-                  <Zap className="mr-2 h-5 w-5" />
-                  Learn More About Us
-                </span>
-              </a>
+              <Button href="/about" variant="primary" icon={Zap} iconPosition="left">
+                Learn More About Us
+              </Button>
             </div>
           </div>
 

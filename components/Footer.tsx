@@ -1,6 +1,7 @@
 'use client'
 
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowUp, Sparkles, Globe, Shield, Zap } from 'lucide-react'
+import Button from './ui/Button'
 import Image from 'next/image'
 
 const Footer = () => {
@@ -172,12 +173,9 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary-500/50 transition-colors duration-300"
               />
-              <button className="btn-primary">
-                <span className="relative z-10 flex items-center">
-                  <Sparkles className="mr-2 h-4 w-4" />
-                  Subscribe
-                </span>
-              </button>
+              <Button variant="primary" icon={Sparkles} iconPosition="left" size="md">
+                Subscribe
+              </Button>
             </div>
           </div>
         </div>

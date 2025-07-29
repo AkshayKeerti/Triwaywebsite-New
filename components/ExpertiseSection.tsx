@@ -16,6 +16,7 @@ import {
   CheckCircle,
   ArrowRight
 } from 'lucide-react'
+import Button from './ui/Button'
 
 const ExpertiseSection = () => {
   const technologies = [
@@ -244,18 +245,12 @@ const ExpertiseSection = () => {
                 Let's leverage our technical expertise to create innovative solutions for your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="/contact" className="btn-primary group">
-                  <span className="relative z-10 flex items-center">
-                    <Code className="mr-2 h-5 w-5" />
-                    Start Your Project
-                  </span>
-                </a>
-                <a href="/portfolio" className="btn-secondary group">
-                  <span className="relative z-10 flex items-center">
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    View Our Work
-                  </span>
-                </a>
+                <Button href="/contact" variant="primary" icon={Code} iconPosition="left">
+                  Start Your Project
+                </Button>
+                <Button href="/portfolio" variant="secondary" icon={ArrowRight} iconPosition="left">
+                  View Our Work
+                </Button>
               </div>
             </div>
             

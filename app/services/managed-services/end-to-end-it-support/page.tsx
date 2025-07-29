@@ -1,6 +1,8 @@
+import React from 'react';
 import Header from '../../../../components/Header'
 import Footer from '../../../../components/Footer'
-import { ArrowRight, CheckCircle, Users, Shield, Clock, Zap, Server, Cloud, Code, Palette } from 'lucide-react'
+import { ArrowRight, Users, Zap, Shield, BarChart3, Globe, Clock, CheckCircle } from 'lucide-react'
+import Button from '../../../../components/ui/Button';
 import Image from 'next/image'
 
 export default function EndtoenditsupportPage() {
@@ -115,14 +117,13 @@ export default function EndtoenditsupportPage() {
               <p className="text-xl text-gray-600 mb-8">
                 Comprehensive IT infrastructure management and support services.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="btn-primary">
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Button href="#contact" variant="primary" icon={ArrowRight}>
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-                <a href="#features" className="btn-secondary">
+                </Button>
+                <Button href="#features" variant="secondary">
                   Learn More
-                </a>
+                </Button>
               </div>
             </div>
             
@@ -251,13 +252,13 @@ export default function EndtoenditsupportPage() {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Let's discuss how our end-to-end it support & outsourcing can transform your business operations.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <Button href="/contact" variant="outline">
               Contact Us
-            </a>
-            <a href="/case-studies" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/case-studies" variant="ghost">
               View Case Studies
-            </a>
+            </Button>
           </div>
         </div>
       </section>

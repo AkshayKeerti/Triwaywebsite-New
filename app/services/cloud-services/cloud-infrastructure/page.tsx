@@ -1,5 +1,6 @@
 import Header from '../../../../components/Header'
 import Footer from '../../../../components/Footer'
+import Button from '../../../../components/ui/Button'
 import { ArrowRight, CheckCircle, Users, Shield, Clock, Zap, Server, Cloud, Code, Palette } from 'lucide-react'
 import Image from 'next/image'
 
@@ -106,13 +107,12 @@ export default function CloudinfrastructurePage() {
                 Servers, VMs, and hybrid cloud setup for optimal performance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="btn-primary">
+                <Button href="#contact" variant="primary" icon={ArrowRight}>
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-                <a href="#features" className="btn-secondary">
+                </Button>
+                <Button href="#features" variant="secondary">
                   Learn More
-                </a>
+                </Button>
               </div>
             </div>
             
@@ -242,12 +242,12 @@ export default function CloudinfrastructurePage() {
             Let's discuss how our cloud infrastructure can transform your business operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="/contact" variant="outline">
               Contact Us
-            </a>
-            <a href="/case-studies" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/case-studies" variant="ghost">
               View Case Studies
-            </a>
+            </Button>
           </div>
         </div>
       </section>

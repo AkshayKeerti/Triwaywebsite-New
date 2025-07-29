@@ -1,6 +1,7 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle } from 'lucide-react'
+import Button from '../../components/ui/Button'
 import Image from 'next/image'
 
 export default function BlogPage() {
@@ -302,10 +303,9 @@ export default function BlogPage() {
               
               {/* Load More Button */}
               <div className="text-center mt-12">
-                <button className="btn-primary">
+                <Button variant="primary" icon={ArrowRight}>
                   Load More Articles
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
+                </Button>
               </div>
             </div>
             
@@ -337,9 +337,9 @@ export default function BlogPage() {
                       placeholder="Enter your email"
                       className="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
                     />
-                    <button className="w-full bg-white text-primary-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                    <Button variant="outline" fullWidth>
                       Subscribe
-                    </button>
+                    </Button>
                   </div>
                 </div>
                 
@@ -383,9 +383,9 @@ export default function BlogPage() {
               placeholder="Enter your email"
               className="flex-1 px-6 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button variant="outline">
               Subscribe
-            </button>
+            </Button>
           </div>
         </div>
       </section>

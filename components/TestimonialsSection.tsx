@@ -13,6 +13,7 @@ import {
   Globe,
   Zap
 } from 'lucide-react'
+import Button from './ui/Button'
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -289,18 +290,12 @@ const TestimonialsSection = () => {
                 Join hundreds of satisfied clients who have transformed their business with our proven solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="/contact" className="btn-primary group">
-                  <span className="relative z-10 flex items-center">
-                    <Zap className="mr-2 h-5 w-5" />
-                    Start Your Success Story
-                  </span>
-                </a>
-                <a href="/case-studies" className="btn-secondary group">
-                  <span className="relative z-10 flex items-center">
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    View Case Studies
-                  </span>
-                </a>
+                <Button href="/contact" variant="primary" icon={Zap} iconPosition="left">
+                  Start Your Success Story
+                </Button>
+                <Button href="/case-studies" variant="secondary" icon={ArrowRight} iconPosition="left">
+                  View Case Studies
+                </Button>
               </div>
             </div>
             

@@ -14,6 +14,7 @@ import {
   Star,
   ArrowRight
 } from 'lucide-react'
+import Button from './ui/Button'
 
 const CompanyOverviewSection = () => {
   const achievements = [
@@ -212,18 +213,12 @@ const CompanyOverviewSection = () => {
                 Let's discuss how we can help transform your business with cutting-edge technology solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="/contact" className="btn-primary group">
-                  <span className="relative z-10 flex items-center">
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Start Your Journey
-                  </span>
-                </a>
-                <a href="/about" className="btn-secondary group">
-                  <span className="relative z-10 flex items-center">
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    Learn More About Us
-                  </span>
-                </a>
+                <Button href="/contact" variant="primary" icon={TrendingUp} iconPosition="left">
+                  Start Your Journey
+                </Button>
+                <Button href="/about" variant="secondary" icon={ArrowRight} iconPosition="left">
+                  Learn More About Us
+                </Button>
               </div>
             </div>
             

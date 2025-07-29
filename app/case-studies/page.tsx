@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Button from '../../components/ui/Button'
 import { ArrowRight, TrendingUp, Users, Shield, Zap, Globe, Building, CreditCard, Car, GraduationCap, Briefcase, Award, Clock, DollarSign, CheckCircle, ShoppingBag, Heart, Settings, Truck } from 'lucide-react'
 import Image from 'next/image'
 
@@ -149,10 +150,9 @@ export default function CaseStudiesPage() {
               and achieve remarkable results through innovative technology solutions.
             </p>
             <div className="flex justify-center">
-              <a href="#case-studies" className="btn-primary">
+              <Button href="#case-studies" variant="primary" icon={ArrowRight}>
                 Explore Projects
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -300,12 +300,12 @@ export default function CaseStudiesPage() {
             Let's discuss how we can help transform your business with our proven technology solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-primary-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <Button href="/contact" variant="outline">
               Start Your Project
-            </a>
-            <a href="/services" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary-500 transition-colors duration-300">
+            </Button>
+            <Button href="/services" variant="ghost">
               Explore Services
-            </a>
+            </Button>
           </div>
         </div>
       </section>

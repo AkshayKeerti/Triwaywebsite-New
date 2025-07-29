@@ -15,6 +15,7 @@ import {
   Target,
   Globe
 } from 'lucide-react'
+import Button from './ui/Button'
 
 const ServicesSection = () => {
   const [hoveredService, setHoveredService] = useState<number | null>(null)
@@ -236,18 +237,12 @@ const ServicesSection = () => {
                 and propel you into the future of technology.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="/contact" className="btn-primary group">
-                  <span className="relative z-10 flex items-center">
-                    <Target className="mr-2 h-5 w-5" />
-                    Get Free Consultation
-                  </span>
-                </a>
-                <a href="/case-studies" className="btn-secondary group">
-                  <span className="relative z-10 flex items-center">
-                    <Globe className="mr-2 h-5 w-5" />
-                    View Case Studies
-                  </span>
-                </a>
+                <Button href="/contact" variant="primary" icon={Target} iconPosition="left">
+                  Get Free Consultation
+                </Button>
+                <Button href="/case-studies" variant="secondary" icon={Globe} iconPosition="left">
+                  View Case Studies
+                </Button>
               </div>
             </div>
             
