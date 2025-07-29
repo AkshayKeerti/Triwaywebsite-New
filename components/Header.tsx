@@ -166,7 +166,6 @@ const Header = () => {
   ]
 
   const navigation = [
-    { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services', hasDropdown: true },
     { name: 'Case Studies', href: '/case-studies' },
