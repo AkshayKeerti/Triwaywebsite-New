@@ -9,6 +9,7 @@ interface InitialLoaderProps {
 const InitialLoader: React.FC<InitialLoaderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [progress, setProgress] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
     // Simulate loading progress
@@ -25,7 +26,11 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({ children }) => {
     // Hide loader after a minimum time and when progress is complete
     const timer = setTimeout(() => {
       if (progress >= 100) {
-        setIsLoading(false)
+        setIsTransitioning(true)
+        // Wait for transition animation to complete before hiding loader
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 800) // Match the transition duration
       }
     }, 2500)
 
@@ -36,11 +41,17 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({ children }) => {
   }, [progress])
 
   if (!isLoading) {
-    return <>{children}</>
+    return (
+      <div className="animate-fade-in-up">
+        {children}
+      </div>
+    )
   }
 
   return (
-    <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center overflow-hidden">
+    <div className={`fixed inset-0 bg-white z-50 flex flex-col items-center justify-center overflow-hidden transition-all duration-800 ease-in-out ${
+      isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+    }`}>
       {/* Background grid pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="w-full h-full" style={{

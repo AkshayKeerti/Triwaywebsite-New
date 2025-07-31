@@ -92,6 +92,9 @@ module.exports = {
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'scale': 'scale 2s ease-in-out infinite',
       },
+      transitionDuration: {
+        '800': '800ms',
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
