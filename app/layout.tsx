@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import './globals.css'
+import InitialLoader from '../components/InitialLoader'
 
 export const metadata: Metadata = {
   title: 'Triway - IT Solutions & Digital Transformation',
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <InitialLoader>
+          {children}
+        </InitialLoader>
       </body>
     </html>
   )
