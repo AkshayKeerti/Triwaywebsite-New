@@ -1,7 +1,8 @@
 import Header from '../../../../components/Header'
 import Footer from '../../../../components/Footer'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle, Brain, MessageSquare, Bot, TrendingUp, Sparkles, Cpu, Target, Star, BarChart3, Award, Zap, Shield, Cloud, Code, Users, Globe, BookOpen, Eye, Heart, MessageCircle, Clock } from 'lucide-react'
 import Button from '../../../../components/ui/Button'
-import { ArrowRight, CheckCircle, Users, Shield, Clock, Zap, Server, Cloud, Code, Palette } from 'lucide-react'
 import Image from 'next/image'
 
 export default function CloudinfrastructurePage() {
@@ -91,9 +92,9 @@ export default function CloudinfrastructurePage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <a href="/services" className="hover:text-primary-500 transition-colors">Services</a>
+            <Link href="/services" className="hover:text-primary-500 transition-colors">Services</Link>
             <span>/</span>
-            <a href="/services/cloud-services" className="hover:text-primary-500 transition-colors">Cloud Services</a>
+            <Link href="/services/cloud-services" className="hover:text-primary-500 transition-colors">Cloud Services</Link>
             <span>/</span>
             <span className="text-gray-900">Cloud Infrastructure</span>
           </div>

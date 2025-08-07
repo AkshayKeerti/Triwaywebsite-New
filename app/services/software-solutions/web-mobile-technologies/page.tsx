@@ -4,6 +4,7 @@ import React from 'react';
 import { ArrowRight, Code, Users, Zap, Shield, BarChart3, Globe, Clock, CheckCircle } from 'lucide-react';
 import Button from '../../../../components/ui/Button';
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function WebmobiletechnologiesPage() {
   const features = [
@@ -92,9 +93,9 @@ export default function WebmobiletechnologiesPage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <a href="/services" className="hover:text-primary-500 transition-colors">Services</a>
+            <Link href="/services" className="hover:text-primary-500 transition-colors">Services</Link>
             <span>/</span>
-            <a href="/services/software-solutions" className="hover:text-primary-500 transition-colors">Software Solutions</a>
+            <Link href="/services/software-solutions" className="hover:text-primary-500 transition-colors">Software Solutions</Link>
             <span>/</span>
             <span className="text-gray-900">Web & Mobile Technologies</span>
           </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown, Zap, Cloud, Shield, Server, Code, Palette, Users, ArrowRight, Sparkles, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const Header = () => {
@@ -215,7 +216,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group">
               <Image
                 src={scrolled || !isHomePage ? "/TriwayTechnologies.png" : "/TriwayTechnologies (White).png"}
                 alt="Triway Technologies"
@@ -223,7 +224,7 @@ const Header = () => {
                 height={80}
                 className="object-contain group-hover:scale-105 transition-transform duration-300"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -248,7 +249,7 @@ const Header = () => {
                     }`} />
                   </div>
                 ) : (
-                  <a
+                  <Link
                     href={item.href}
                     className={`nav-link text-sm font-medium transition-colors duration-300 relative group border-0 outline-none ${
                       scrolled || !isHomePage
@@ -260,7 +261,7 @@ const Header = () => {
                     <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                       scrolled || !isHomePage ? 'bg-blue-600' : 'bg-white'
                     }`}></span>
-                  </a>
+                  </Link>
                 )}
 
                 {/* Redesigned Services Dropdown */}
@@ -280,7 +281,7 @@ const Header = () => {
                         
                         <div className="space-y-1">
                           {services.map((service) => (
-                            <a
+                            <Link
                               key={service.id}
                               href={`/services/${service.id}`}
                               className={`p-2 rounded-lg cursor-pointer service-item flex items-center justify-between group ${
@@ -295,7 +296,7 @@ const Header = () => {
                                 <span className="text-white font-medium">{service.name}</span>
                               </div>
                               <ArrowRight className="h-4 w-4 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
@@ -333,10 +334,10 @@ const Header = () => {
                                   const service = services.find(s => s.id === selectedService)
                                   return service ? (
                                     service.items.map((item, index) => (
-                                      <a
-                                        key={index}
+                                      <Link
+                                        key={`${service.id}-${item.title}`}
                                         href={getServiceUrl(service.id, item.title)}
-                                        className="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 block group"
+                                        className="block p-3 rounded-lg hover:bg-white/5 transition-all duration-300 group"
                                       >
                                         <h5 className="font-semibold text-gray-900 mb-1 text-sm group-hover:text-primary-500 transition-colors">{item.title}</h5>
                                         <p className="text-xs text-gray-600 leading-relaxed">{item.description}</p>
@@ -344,7 +345,7 @@ const Header = () => {
                                           <span className="text-xs text-primary-500 font-medium">Learn More</span>
                                           <ArrowRight className="h-3 w-3 text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                         </div>
-                                      </a>
+                                      </Link>
                                     ))
                                   ) : null
                                 })()}
@@ -370,7 +371,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center ml-8">
-            <a
+            <Link
               href="/contact"
               className={`px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105 ${
                 scrolled || !isHomePage
@@ -379,7 +380,7 @@ const Header = () => {
               }`}
             >
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -406,7 +407,7 @@ const Header = () => {
                 : 'bg-black/95 border-t border-white/10'
             }`}>
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
@@ -416,12 +417,12 @@ const Header = () => {
                   }`}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className={`pt-4 border-t mt-4 ${
                 scrolled || !isHomePage ? 'border-gray-200' : 'border-white/10'
               }`}>
-                <a
+                <Link
                   href="/contact"
                   className={`block px-3 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
                     scrolled || !isHomePage
@@ -430,7 +431,7 @@ const Header = () => {
                   }`}
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

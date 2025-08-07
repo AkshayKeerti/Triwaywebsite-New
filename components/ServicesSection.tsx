@@ -15,6 +15,7 @@ import {
   Target,
   Globe
 } from 'lucide-react'
+import Link from 'next/link'
 import Button from './ui/Button'
 
 const ServicesSection = () => {
@@ -207,13 +208,13 @@ const ServicesSection = () => {
                 </div>
                 
                 {/* CTA */}
-                <a 
+                <Link
                   href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="inline-flex items-center text-primary-500 font-semibold hover:text-gray-900 transition-colors group-hover:translate-x-1"
+                  className="group-hover:translate-x-1 transition-transform duration-300"
                 >
                   Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                  <ArrowRight className="inline ml-2 h-4 w-4" />
+                </Link>
               </div>
               
               {/* Hover Border Effect */}

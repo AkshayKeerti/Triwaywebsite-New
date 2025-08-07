@@ -1,7 +1,8 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
+import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle, Target, Star, CheckCircle, BarChart3, Award, Sparkles, Truck } from 'lucide-react'
 import Button from '../../components/ui/Button'
-import { ArrowRight, TrendingUp, Users, Shield, Zap, Globe, Building, CreditCard, Car, GraduationCap, Briefcase, Award, Clock, DollarSign, CheckCircle, ShoppingBag, Heart, Settings, Truck } from 'lucide-react'
 import Image from 'next/image'
 
 export default function CaseStudiesPage() {
@@ -11,7 +12,7 @@ export default function CaseStudiesPage() {
       title: "Digital Banking Transformation",
       client: "Global Bank",
       industry: "Banking & Finance",
-      icon: CreditCard,
+      icon: Shield,
       color: "from-blue-500 to-blue-600",
       challenge: "Modernize legacy banking systems and improve customer experience while maintaining security compliance.",
       solution: "Implemented cloud-native banking platform with AI-powered fraud detection and mobile-first design.",
@@ -30,7 +31,7 @@ export default function CaseStudiesPage() {
       title: "E-commerce Platform Overhaul",
       client: "Retail Chain",
       industry: "Retail & E-commerce",
-      icon: ShoppingBag,
+      icon: Cloud,
       color: "from-green-500 to-green-600",
       challenge: "Scale e-commerce operations to handle 10x traffic increase during peak seasons.",
       solution: "Built scalable microservices architecture with AI-powered inventory management and personalized recommendations.",
@@ -68,7 +69,7 @@ export default function CaseStudiesPage() {
       title: "Manufacturing IoT Integration",
       client: "Manufacturing Corp",
       industry: "Manufacturing",
-      icon: Settings,
+      icon: Code,
       color: "from-purple-500 to-purple-600",
       challenge: "Implement IoT sensors and predictive maintenance across 50+ manufacturing facilities.",
       solution: "Deployed comprehensive IoT infrastructure with AI-powered predictive analytics and real-time monitoring.",
@@ -87,7 +88,7 @@ export default function CaseStudiesPage() {
       title: "Government Digital Services",
       client: "State Government",
       industry: "Government",
-      icon: Building,
+      icon: Globe,
       color: "from-indigo-500 to-indigo-600",
       challenge: "Modernize citizen services and improve government efficiency through digital transformation.",
       solution: "Built comprehensive digital government platform with secure authentication and automated workflows.",
@@ -123,11 +124,11 @@ export default function CaseStudiesPage() {
   ]
 
   const industries = [
-    { name: "Banking & Finance", icon: CreditCard, count: 15 },
+    { name: "Banking & Finance", icon: Shield, count: 15 },
     { name: "Healthcare", icon: Heart, count: 12 },
-    { name: "Retail & E-commerce", icon: ShoppingBag, count: 18 },
-    { name: "Manufacturing", icon: Settings, count: 10 },
-    { name: "Government", icon: Building, count: 8 },
+    { name: "Retail & E-commerce", icon: Cloud, count: 18 },
+    { name: "Manufacturing", icon: Code, count: 10 },
+    { name: "Government", icon: Globe, count: 8 },
     { name: "Logistics", icon: Truck, count: 14 }
   ]
 
@@ -280,10 +281,10 @@ export default function CaseStudiesPage() {
                   </div>
                   
                   <div className="mt-6">
-                    <a href={`/case-studies/${study.id}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                    <Link href={`/case-studies/${study.id}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                       Read Full Case Study
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -1,18 +1,16 @@
 import React from 'react'
-import { LucideIcon } from 'lucide-react'
+import Link from 'next/link'
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'header'
   size?: 'sm' | 'md' | 'lg'
   href?: string
-  onClick?: () => void
   children: React.ReactNode
   className?: string
-  disabled?: boolean
-  type?: 'button' | 'submit'
-  icon?: LucideIcon
+  icon?: React.ComponentType<{ className?: string }>
   iconPosition?: 'left' | 'right'
   fullWidth?: boolean
+  [key: string]: any
 }
 
 const Button = ({ 
@@ -55,9 +53,9 @@ const Button = ({
   
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <Link href={href} className={classes} {...props}>
         {renderContent()}
-      </a>
+      </Link>
     )
   }
   

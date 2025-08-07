@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
 import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import Image from 'next/image'
@@ -221,10 +222,10 @@ export default function BlogPage() {
                     </div>
                   </div>
                   
-                  <a href={`/blog/${featuredPost.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                  <Link href={`/blog/${featuredPost.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -235,6 +236,11 @@ export default function BlogPage() {
       {/* Blog Posts Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+            <Link href="/" className="hover:text-primary-500 transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-gray-900">Blog</span>
+          </div>
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Main Content */}
             <div className="lg:w-2/3">
@@ -291,10 +297,10 @@ export default function BlogPage() {
                           </div>
                         </div>
                         
-                        <a href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                        <Link href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4" />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

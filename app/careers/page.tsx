@@ -1,7 +1,8 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
 import Button from '../../components/ui/Button'
-import { ArrowRight, MapPin, Clock, DollarSign, Users, Heart, Zap, Shield, Code, Palette, Cloud, Server, Briefcase, Award, Globe, Star, CheckCircle, Send, Filter, Search } from 'lucide-react'
+import { ArrowRight, MapPin, Clock, DollarSign, Users, Zap, Shield, Code, Palette, Cloud, Server, Sparkles, CheckCircle, Star, Target, Globe, BookOpen, Heart, Award, TrendingUp, Search, Filter, Briefcase } from 'lucide-react'
 import Image from 'next/image'
 
 export default function CareersPage() {
@@ -310,6 +311,11 @@ export default function CareersPage() {
       {/* Job Listings */}
       <section id="positions" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+            <Link href="/" className="hover:text-primary-500 transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-gray-900">Careers</span>
+          </div>
           <div className="flex flex-col lg:flex-row gap-8 mb-12">
             <div className="lg:w-1/3">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Open Positions</h2>
@@ -391,10 +397,10 @@ export default function CareersPage() {
                         <span>•</span>
                         <span>15 applicants</span>
                       </div>
-                      <a href={`/careers/${position.id}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                      <Link href={`/careers/${position.id}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                         View Details
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))}

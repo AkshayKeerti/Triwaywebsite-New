@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, FileText, Code, Users, Zap, Shield, BarChart3, Gl
 import Button from '../../../../components/ui/Button';
 import Header from '../../../../components/Header'
 import Footer from '../../../../components/Footer'
+import Link from 'next/link'
 import Image from 'next/image'
 
 export default function GenerativeaiPage() {
@@ -102,9 +103,9 @@ export default function GenerativeaiPage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-            <a href="/services" className="hover:text-primary-500 transition-colors">Services</a>
+            <Link href="/services" className="hover:text-primary-500 transition-colors">Services</Link>
             <span>/</span>
-            <a href="/services/ai-automation" className="hover:text-primary-500 transition-colors">Ai Automation</a>
+            <Link href="/services/ai-automation" className="hover:text-primary-500 transition-colors">Ai Automation</Link>
             <span>/</span>
             <span className="text-gray-900">Generative AI</span>
           </div>

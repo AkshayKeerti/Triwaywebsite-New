@@ -1,6 +1,7 @@
 'use client'
 
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, ArrowUp, Sparkles, Globe, Shield, Zap } from 'lucide-react'
+import Link from 'next/link'
 import Button from './ui/Button'
 import Image from 'next/image'
 
@@ -102,14 +103,13 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href}
-                    className="text-gray-600 hover:text-primary-500 transition-colors duration-300 group flex items-center"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
-                  </a>
-                </li>
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-primary-500 transition-colors duration-300 group flex items-center"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                </Link>
               ))}
             </ul>
           </div>
@@ -122,14 +122,13 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href}
-                    className="text-gray-600 hover:text-secondary-500 transition-colors duration-300 group flex items-center"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
-                  </a>
-                </li>
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-secondary-500 transition-colors duration-300 group flex items-center"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                </Link>
               ))}
             </ul>
           </div>
@@ -142,14 +141,13 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href}
-                    className="text-gray-600 hover:text-accent-500 transition-colors duration-300 group flex items-center"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
-                  </a>
-                </li>
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-accent-500 transition-colors duration-300 group flex items-center"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                </Link>
               ))}
             </ul>
           </div>
@@ -190,14 +188,14 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-6">
               {socialLinks.map((social) => (
-                <a
+                <Link
                   key={social.name}
                   href={social.href}
-                  className={`text-gray-500 ${social.color} transition-colors duration-300 p-2 rounded-lg hover:bg-gray-100`}
+                  className={`p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300 ${social.color}`}
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

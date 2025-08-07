@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Zap, ArrowRight, CheckCircle, Brain, MessageSquare, Bot, TrendingUp, Sparkles, Cpu } from 'lucide-react'
+import { Zap, ArrowRight, CheckCircle, Brain, MessageSquare, Bot, TrendingUp, Sparkles, Cpu, Globe } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AIAutomationPage() {
@@ -365,16 +365,18 @@ export default function AIAutomationPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center justify-center"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Get AI Assessment
+              Get Started Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
+
             <Link
               href="/case-studies"
-              className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-orange-600 transition-colors duration-300 inline-flex items-center justify-center"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-orange-500 border-2 border-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-105"
             >
-              View AI Success Stories
+              View Case Studies
+              <Globe className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>

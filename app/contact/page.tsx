@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
 import { ArrowRight, MapPin, Phone, Mail, Clock, Send, MessageCircle, Globe, Building, Users, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
 import Button from '../../components/ui/Button'
@@ -240,7 +241,7 @@ export default function ContactPage() {
                     className="mt-1 h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
                   />
                   <label htmlFor="privacy" className="text-sm text-gray-600">
-                    I agree to the <a href="/privacy" className="text-primary-500 hover:text-primary-600">Privacy Policy</a> and consent to being contacted about my project.
+                    I agree to the <Link href="/privacy" className="text-primary-500 hover:text-primary-600">Privacy Policy</Link> and consent to being contacted about my project.
                   </label>
                 </div>
                 

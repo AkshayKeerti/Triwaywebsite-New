@@ -1,7 +1,8 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
+import { ArrowRight, TrendingUp, Users, Shield, Zap, Globe, Building, CreditCard, Car, GraduationCap, Briefcase, Award, Clock, DollarSign, CheckCircle, ShoppingBag, Heart, Settings, Truck, Target, Star, BarChart3, Sparkles, Cloud, Wifi, Smartphone } from 'lucide-react'
 import Button from '../../components/ui/Button'
-import { ArrowRight, TrendingUp, Users, Shield, Zap, Globe, Building, CreditCard, Car, GraduationCap, Briefcase, Award, Clock, DollarSign, CheckCircle, ShoppingBag, Heart, Settings, Truck, Plane, Camera, BookOpen, Palette, Database, Wifi, Smartphone, Monitor, Server, Cloud, Lock, BarChart3 } from 'lucide-react'
 import Image from 'next/image'
 
 export default function IndustriesPage() {
@@ -361,10 +362,10 @@ export default function IndustriesPage() {
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <a href={`/case-studies?industry=${industry.name.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                    <Link href={`/case-studies?industry=${industry.name.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                       View Case Studies
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                    </Link>
                     <Button href="/contact" variant="primary" size="sm">
                       Get Started
                     </Button>

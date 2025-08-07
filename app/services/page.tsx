@@ -265,9 +265,13 @@ export default function ServicesPage() {
                   </div>
                   
                   <div className="pt-4 border-t border-gray-200">
-                    <span className="text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
+                    <Link
+                      href={category.href}
+                      className="text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors duration-300 inline-flex items-center"
+                    >
                       Explore {category.title} →
-                    </span>
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
               </Link>
@@ -322,16 +326,18 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center justify-center"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Get Free Consultation
+              Get Started Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
+
             <Link
               href="/case-studies"
-              className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center justify-center"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-primary-500 border-2 border-primary-500 rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300 transform hover:scale-105"
             >
               View Case Studies
+              <Globe className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>
