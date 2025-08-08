@@ -118,10 +118,10 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({ children }) => {
 
         
         {/* Floating tech elements */}
-        <div className="absolute top-8 left-8 w-4 h-4 bg-neon-purple rounded-full animate-float" />
-        <div className="absolute top-16 right-12 w-3 h-3 bg-neon-pink rounded-full animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-16 left-12 w-5 h-5 bg-neon-green rounded-full animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-8 right-8 w-3 h-3 bg-neon-orange rounded-full animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-8 left-8 w-4 h-4 bg-neon-purple rounded-full animate-float floating-light" />
+        <div className="absolute top-16 right-12 w-3 h-3 bg-neon-pink rounded-full animate-float floating-light" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-16 left-12 w-5 h-5 bg-neon-green rounded-full animate-float floating-light" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-8 right-8 w-3 h-3 bg-neon-orange rounded-full animate-float floating-light" style={{ animationDelay: '3s' }} />
         
         {/* Matrix-style data streams */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20">

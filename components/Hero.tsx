@@ -23,10 +23,10 @@ const Hero = () => {
       
       {/* Abstract tech elements on top */}
       <div className="absolute inset-0">
-        {/* Geometric shapes */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/30 to-indigo-400/30 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-purple-400/30 to-blue-400/30 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-40 left-1/3 w-40 h-40 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        {/* Geometric shapes - Fixed floating lights */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/30 to-indigo-400/30 rounded-full blur-2xl animate-float floating-light"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-purple-400/30 to-blue-400/30 rounded-full blur-2xl animate-float floating-light" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-40 left-1/3 w-40 h-40 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl animate-float floating-light" style={{ animationDelay: '4s' }}></div>
         
         {/* Tech grid pattern */}
         <div className="absolute inset-0 opacity-15">
@@ -175,15 +175,15 @@ const Hero = () => {
                 </div>
                 
                                  {/* Floating Elements */}
-                 <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float">
-                   <span className="text-white text-sm font-bold">T</span>
-                 </div>
-                 <div className="absolute bottom-4 left-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float" style={{ animationDelay: '1s' }}>
-                   <span className="text-white text-sm">AI</span>
-                 </div>
-                 <div className="absolute top-1/2 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float" style={{ animationDelay: '2s' }}>
-                   <span className="text-white text-sm">ML</span>
-                 </div>
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float floating-light">
+                  <span className="text-white text-sm font-bold">T</span>
+                </div>
+                <div className="absolute bottom-4 left-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float floating-light" style={{ animationDelay: '1s' }}>
+                  <span className="text-white text-sm">AI</span>
+                </div>
+                <div className="absolute top-1/2 right-6 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float floating-light" style={{ animationDelay: '2s' }}>
+                  <span className="text-white text-sm">ML</span>
+                </div>
               </div>
             </div>
           </div>

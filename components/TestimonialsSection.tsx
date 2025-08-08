@@ -106,8 +106,8 @@ const TestimonialsSection = () => {
     <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-10"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl animate-float floating-light"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-float floating-light" style={{ animationDelay: '2s' }}></div>
       
       {/* Contained content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -300,8 +300,8 @@ const TestimonialsSection = () => {
             </div>
             
             {/* Floating Elements */}
-            <div className="absolute top-4 right-4 w-16 h-16 bg-secondary-500/20 rounded-full animate-float"></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 bg-accent-500/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-4 right-4 w-16 h-16 bg-secondary-500/20 rounded-full animate-float floating-light"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-accent-500/20 rounded-full animate-float floating-light" style={{ animationDelay: '2s' }}></div>
           </div>
         </div>
       </div>
