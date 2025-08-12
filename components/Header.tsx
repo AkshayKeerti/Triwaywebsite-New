@@ -303,12 +303,6 @@ const Header = () => {
 
                       {/* Right Column - Service Details */}
                       <div className="bg-white p-6 relative overflow-y-auto">
-                        {/* Background Pattern */}
-                        <div className="absolute inset-0 opacity-5">
-                          <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-blue-500 rounded-full"></div>
-                          <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-purple-500 rounded-full"></div>
-                        </div>
-                        
                         <div className="relative z-10 h-full">
                           {selectedService ? (
                             <div className="space-y-4">
