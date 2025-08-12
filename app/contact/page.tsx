@@ -1,7 +1,7 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Phone, Mail, Clock, Send, MessageCircle, Globe, Building, Users, CheckCircle } from 'lucide-react'
+import { ArrowRight, MapPin, Phone, Mail, Clock, Send, MessageCircle, Globe, Building, Users, CheckCircle, MessageSquare } from 'lucide-react'
 import Image from 'next/image'
 import Button from '../../components/ui/Button'
 
@@ -23,21 +23,24 @@ export default function ContactPage() {
       title: "Call Us",
       description: "Speak with our experts",
       contact: "+971 4 294 5616",
-      action: "Call Now"
+      action: "Call Now",
+      href: "tel:+97142945616"
     },
     {
       icon: Mail,
       title: "Email Us",
       description: "Send us a message",
       contact: "info@triwaytechnologies.com",
-      action: "Send Email"
+      action: "Send Email",
+      href: "mailto:info@triwaytechnologies.com"
     },
     {
-      icon: MessageCircle,
-      title: "Live Chat",
+      icon: MessageSquare,
+      title: "WhatsApp",
       description: "Chat with our team",
-      contact: "Available 24/7",
-      action: "Start Chat"
+      contact: "+971 55 650 2601",
+      action: "Start Chat",
+      href: "https://wa.me/971556502601"
     }
   ]
 
@@ -88,9 +91,14 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{method.title}</h3>
                 <p className="text-gray-600 mb-4">{method.description}</p>
                 <div className="text-primary-500 font-semibold mb-4">{method.contact}</div>
-                <button className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-600 transition-colors duration-300">
+                <a
+                  href={method.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-primary-600 transition-colors duration-300 inline-block text-center"
+                >
                   {method.action}
-                </button>
+                </a>
               </div>
             ))}
           </div>
