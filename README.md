@@ -180,5 +180,5 @@ This project is licensed under the MIT License.
 ## Support
 
 For support or questions, please contact:
-- Email: contact@triway.com
-- Phone: +1 (555) 123-4567 
+- Email: info@triwaytechnologies.com
+- Phone: +971 4 294 5616 

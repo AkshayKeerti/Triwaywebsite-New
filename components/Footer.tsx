@@ -35,10 +35,10 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-blue-400' },
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-cyan-400' },
-    { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-blue-500' },
-    { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-pink-400' }
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/triwaytechnologies/', color: 'hover:text-blue-400' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/TriwayOfficial', color: 'hover:text-cyan-400' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/triwaytech/', color: 'hover:text-blue-500' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/triwayofficial/?hl=en', color: 'hover:text-pink-400' }
   ]
 
   const scrollToTop = () => {
@@ -78,19 +78,19 @@ const Footer = () => {
                 <div className="p-2 rounded-lg bg-primary-500/10 text-primary-500 mr-4 group-hover:bg-primary-500/20 transition-colors duration-300">
                   <Mail className="h-5 w-5" />
                 </div>
-                <span className="group-hover:text-gray-900 transition-colors duration-300">contact@triway.com</span>
+                <span className="group-hover:text-gray-900 transition-colors duration-300">info@triwaytechnologies.com</span>
               </div>
               <div className="flex items-center text-gray-600 group">
                 <div className="p-2 rounded-lg bg-secondary-500/10 text-secondary-500 mr-4 group-hover:bg-secondary-500/20 transition-colors duration-300">
                   <Phone className="h-5 w-5" />
                 </div>
-                <span className="group-hover:text-gray-900 transition-colors duration-300">+1 (555) 123-4567</span>
+                <span className="group-hover:text-gray-900 transition-colors duration-300">+971 4 294 5616</span>
               </div>
               <div className="flex items-center text-gray-600 group">
                 <div className="p-2 rounded-lg bg-accent-500/10 text-accent-500 mr-4 group-hover:bg-accent-500/20 transition-colors duration-300">
                   <MapPin className="h-5 w-5" />
                 </div>
-                <span className="group-hover:text-gray-900 transition-colors duration-300">123 Tech Street, Digital City, DC 12345</span>
+                <span className="group-hover:text-gray-900 transition-colors duration-300">Office 702, Makateb Building, Port Saeed, Deira, Dubai, UAE</span>
               </div>
             </div>
           </div>

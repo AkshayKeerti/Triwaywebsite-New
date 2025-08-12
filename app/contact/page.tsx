@@ -9,17 +9,9 @@ export default function ContactPage() {
   const offices = [
     {
       name: "Dubai Office",
-      address: "Sheikh Zayed Road, Dubai, UAE",
-      phone: "+971 4 123 4567",
-      email: "dubai@triwaytech.com",
-      hours: "Sun-Thu: 9:00 AM - 6:00 PM",
-      image: "/dubai.png"
-    },
-    {
-      name: "Abu Dhabi Office",
-      address: "Corniche Road, Abu Dhabi, UAE",
-      phone: "+971 2 123 4567",
-      email: "abudhabi@triwaytech.com",
+      address: "Office 702, Makateb Building, Port Saeed, Deira, Dubai, UAE",
+      phone: "+971 4 294 5616",
+      email: "info@triwaytechnologies.com",
       hours: "Sun-Thu: 9:00 AM - 6:00 PM",
       image: "/dubai.png"
     }
@@ -30,14 +22,14 @@ export default function ContactPage() {
       icon: Phone,
       title: "Call Us",
       description: "Speak with our experts",
-      contact: "+971 4 123 4567",
+      contact: "+971 4 294 5616",
       action: "Call Now"
     },
     {
       icon: Mail,
       title: "Email Us",
       description: "Send us a message",
-      contact: "hello@triwaytech.com",
+      contact: "info@triwaytechnologies.com",
       action: "Send Email"
     },
     {
