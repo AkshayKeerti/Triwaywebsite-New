@@ -253,7 +253,7 @@ export default function EndtoenditsupportPage() {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Let's discuss how our end-to-end it support & outsourcing can transform your business operations.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Button href="/contact" variant="outline">
               Contact Us
             </Button>

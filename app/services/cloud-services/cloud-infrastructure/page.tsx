@@ -107,14 +107,14 @@ export default function CloudinfrastructurePage() {
               <p className="text-xl text-gray-600 mb-8">
                 Servers, VMs, and hybrid cloud setup for optimal performance.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="#contact" variant="primary" icon={ArrowRight}>
-                  Get Started
-                </Button>
-                <Button href="#features" variant="secondary">
-                  Learn More
-                </Button>
-              </div>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="#contact" variant="primary" icon={ArrowRight}>
+              Get Started
+            </Button>
+            <Button href="#features" variant="secondary">
+              Learn More
+            </Button>
+          </div>
             </div>
             
             <div className="relative">
