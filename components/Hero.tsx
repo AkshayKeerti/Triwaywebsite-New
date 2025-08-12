@@ -176,7 +176,7 @@ const Hero = () => {
                 
                                  {/* Floating Elements */}
                 <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float floating-light">
-                  <span className="text-white text-sm font-bold">T</span>
+                  <span className="text-white text-sm font-bold">SS</span>
                 </div>
                 <div className="absolute bottom-4 left-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30 animate-float floating-light" style={{ animationDelay: '1s' }}>
                   <span className="text-white text-sm">AI</span>
