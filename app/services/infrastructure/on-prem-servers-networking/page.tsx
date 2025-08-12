@@ -223,13 +223,13 @@ export default function OnpremserversnetworkingPage() {
               <div key={index} className="card p-6 group hover:scale-105 transition-transform duration-300">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <a 
+                <Link 
                   href={service.href}
                   className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300"
                 >
                   Learn More
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </div>
             ))}
           </div>
