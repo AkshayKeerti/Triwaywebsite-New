@@ -1,7 +1,7 @@
 import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Calendar, Clock, User, Tag, Shield, Users, CheckCircle, BarChart3, Award, Sparkles, TrendingUp, Zap, Globe, Building2, Target, Star, Eye, Heart, MessageCircle, Code, Database, CreditCard, Monitor, Server, Rocket, Target as TargetIcon, Network } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calendar, Clock, User, Tag, Shield, Users, CheckCircle, BarChart3, Award, Sparkles, TrendingUp, Zap, Globe, Building2, Target, Star, Eye, MessageCircle, Code, Database, CreditCard, Monitor, Server, Rocket, Target as TargetIcon, Network } from 'lucide-react'
 import Button from '../../../components/ui/Button'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -149,15 +149,7 @@ const caseStudies = {
       }
     ],
     
-    // Testimonial
-    testimonial: {
-      quote: "Triway's expertise and commitment transformed our bank from a traditional institution to a modern, digital-first organization. The results exceeded our expectations, and we now lead the market in digital banking capabilities.",
-      author: "Senior Management",
-      role: "Sahara Bank"
-    },
-    
-    // Ongoing Partnership
-    ongoingPartnership: "Triway continues to support Sahara Bank with comprehensive managed services, including system monitoring, performance optimization, and strategic technology consulting to ensure sustained success and continuous innovation."
+
   }
 }
 
@@ -443,45 +435,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card p-12 text-center max-w-4xl mx-auto">
-            <div className="flex items-center space-x-1 mb-6 justify-center">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <blockquote className="text-gray-700 text-2xl mb-8 italic leading-relaxed">
-              "{caseStudy.testimonial.quote}"
-            </blockquote>
-            <div className="flex items-center justify-center space-x-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-                <User className="h-8 w-8 text-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900 text-lg">{caseStudy.testimonial.author}</p>
-                <p className="text-gray-600">{caseStudy.testimonial.role}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Ongoing Partnership Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card p-8 text-center max-w-4xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Heart className="h-8 w-8 text-white" />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Ongoing Partnership</h2>
-            <p className="text-gray-600 leading-relaxed text-lg">
-              {caseStudy.ongoingPartnership}
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-500 to-secondary-500">
