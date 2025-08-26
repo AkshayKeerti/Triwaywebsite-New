@@ -10,69 +10,154 @@ import { notFound } from 'next/navigation'
 const caseStudies = {
   "1": {
     id: 1,
-    title: "Digital Banking Transformation",
-    client: "Global Bank",
+    title: "Sahara Bank - Digital Banking Transformation",
+    client: "Sahara Bank",
     industry: "Banking & Finance",
     icon: Shield,
     color: "from-blue-500 to-blue-600",
-    challenge: "Modernize legacy banking systems and improve customer experience while maintaining security compliance.",
-    solution: "Implemented cloud-native banking platform with AI-powered fraud detection and mobile-first design.",
-    results: [
-      "40% reduction in transaction processing time",
-      "99.9% uptime achieved",
-      "50% increase in mobile app adoption",
-      "Enhanced security with zero breaches"
-    ],
     image: "/dubai.png",
     duration: "18 months",
     team: "25+ experts",
-    fullDescription: "Our team worked closely with Global Bank to completely transform their digital banking infrastructure. The project involved migrating from legacy mainframe systems to a modern, cloud-native platform that could scale with their growing customer base while maintaining the highest security standards required in the financial industry.",
-    detailedChallenge: "Global Bank was facing significant challenges with their aging banking infrastructure. Their legacy mainframe systems were struggling to handle increasing transaction volumes, their mobile banking app was outdated and slow, and they needed to implement stronger fraud detection capabilities to meet regulatory requirements. Additionally, their customer experience was falling behind competitors, leading to customer churn.",
-    detailedSolution: "We designed and implemented a comprehensive digital transformation solution that included:\n\n• Cloud-native microservices architecture for scalability and reliability\n• AI-powered fraud detection system with real-time monitoring\n• Modern mobile-first banking application with intuitive UX\n• Advanced security measures including multi-factor authentication and encryption\n• Real-time data analytics and reporting capabilities\n• Seamless integration with existing banking systems",
+    location: "Libya",
+    
+    // Executive Summary
+    executiveSummary: "Sahara Bank partnered with Triway to modernize their entire banking infrastructure, transforming from legacy systems to a fully digital, real-time banking platform. This comprehensive initiative enhanced customer experience, strengthened regulatory compliance, and positioned the bank as a technology leader in Libya's financial sector.",
+    
+    // Client Background
+    clientBackground: "Sahara Bank is one of Libya's premier commercial banks, serving thousands of retail and corporate customers across multiple branches. As customer expectations evolved and digital banking became essential, Sahara Bank recognized the need for a complete technological transformation to maintain their market leadership position.",
+    
+    // Business Challenges
+    challenges: [
+      "Outdated Core Systems: Legacy banking infrastructure caused significant delays and operational inefficiencies",
+      "Limited Digital Capabilities: Absence of real-time processing and modern payment options",
+      "Compliance Gaps: Existing systems struggled to meet evolving regulatory requirements",
+      "Customer Experience Issues: Slow, manual processes frustrated customers and limited service quality",
+      "Operational Visibility: Management lacked real-time insights for strategic decision-making"
+    ],
+    
+    // Solution Components
+    solutionComponents: [
+      {
+        title: "Enterprise Command Center (ECC) Interface",
+        description: "Centralized management platform for all banking operations with real-time monitoring and automated workflow management",
+        icon: Monitor,
+        color: "from-blue-500 to-blue-600"
+      },
+      {
+        title: "LyPay Digital Payment Platform",
+        description: "Complete digital payment processing ecosystem with mobile banking application and multi-channel integration",
+        icon: CreditCard,
+        color: "from-green-500 to-green-600"
+      },
+      {
+        title: "Credit Bureau Integration",
+        description: "Seamless connectivity with national and international credit agencies for automated credit scoring and risk assessment",
+        icon: Database,
+        color: "from-purple-500 to-purple-600"
+      },
+      {
+        title: "Comprehensive Support Framework",
+        description: "24/7 system monitoring, proactive maintenance, disaster recovery, and continuous improvement services",
+        icon: Server,
+        color: "from-orange-500 to-orange-600"
+      }
+    ],
+    
+    // Implementation Phases
+    implementationPhases: [
+      {
+        phase: "Discovery & Architecture",
+        duration: "Months 1-3",
+        description: "Comprehensive system assessment, solution architecture design, and detailed project planning",
+        icon: TargetIcon,
+        color: "from-blue-500 to-blue-600"
+      },
+      {
+        phase: "Core Platform Development",
+        duration: "Months 4-10",
+        description: "ECC implementation, system integration, data migration, and comprehensive testing",
+        icon: Code,
+        color: "from-green-500 to-green-600"
+      },
+      {
+        phase: "Digital Services Launch",
+        duration: "Months 11-15",
+        description: "LyPay deployment, mobile application development, and staff training programs",
+        icon: Rocket,
+        color: "from-purple-500 to-purple-600"
+      },
+      {
+        phase: "Go-Live & Optimization",
+        duration: "Months 16-18",
+        description: "Phased production rollout, performance tuning, and knowledge transfer",
+        icon: TrendingUp,
+        color: "from-orange-500 to-orange-600"
+      }
+    ],
+    
+    // Results by Category
+    results: {
+      operational: [
+        { metric: "99.9%", label: "System Uptime", description: "Eliminated service interruptions" },
+        { metric: "75%", label: "Faster Processing", description: "Reduced transaction times from minutes to seconds" },
+        { metric: "Real-time", label: "Capabilities", description: "Instant account updates and balance inquiries" },
+        { metric: "100%", label: "Automated Operations", description: "Eliminated manual, error-prone processes" }
+      ],
+      customer: [
+        { metric: "50,000+", label: "Mobile Users", description: "Successful digital adoption" },
+        { metric: "60%", label: "Reduced Wait Times", description: "Streamlined service delivery" },
+        { metric: "40%", label: "Higher Satisfaction", description: "Improved customer experience scores" },
+        { metric: "24/7", label: "Service Availability", description: "Round-the-clock banking access" }
+      ],
+      compliance: [
+        { metric: "100%", label: "Regulatory Compliance", description: "Met all Central Bank requirements" },
+        { metric: "Enhanced", label: "AML Capabilities", description: "Automated compliance monitoring" },
+        { metric: "Complete", label: "Audit Trails", description: "Full transaction visibility" },
+        { metric: "Strengthened", label: "KYC Processes", description: "Improved customer verification" }
+      ],
+      business: [
+        { metric: "300%", label: "Digital Transaction Growth", description: "Massive adoption of digital services" },
+        { metric: "25%", label: "Cost Reduction", description: "Operational efficiency improvements" },
+        { metric: "80%", label: "Faster Loan Processing", description: "Automated approval workflows" },
+        { metric: "Enhanced", label: "Risk Management", description: "Better decision-making capabilities" }
+      ]
+    },
+    
+    // Technologies
     technologies: [
-      "AWS Cloud Infrastructure",
-      "React Native Mobile App",
-      "Node.js Backend Services",
-      "PostgreSQL Database",
-      "Redis Caching",
-      "Kubernetes Orchestration",
-      "TensorFlow AI Models",
-      "Docker Containers"
+      { name: "Enterprise Command Center", category: "Management System", icon: Monitor },
+      { name: "LyPay Platform", category: "Digital Payment Processing", icon: CreditCard },
+      { name: "Credit Bureau APIs", category: "Integration Services", icon: Database },
+      { name: "Oracle Enterprise Database", category: "Database Systems", icon: Database },
+      { name: "IBM WebSphere", category: "Application Infrastructure", icon: Server },
+      { name: "Cisco Architecture", category: "Network & Security", icon: Network }
     ],
-    process: [
+    
+    // Success Factors
+    successFactors: [
       {
-        phase: "Discovery & Analysis",
-        description: "Comprehensive analysis of existing systems, security requirements, and business needs",
-        duration: "2 months"
+        title: "Strategic Partnership Approach",
+        description: "Deep understanding of Libya's banking regulations and market dynamics, collaborative engagement with all stakeholders throughout the transformation, comprehensive change management and staff development programs."
       },
       {
-        phase: "Architecture Design",
-        description: "Design of scalable cloud architecture and security framework",
-        duration: "3 months"
+        title: "Proven Methodology",
+        description: "Phased implementation approach minimizing business risk, rigorous testing and quality assurance at every stage, continuous monitoring and optimization during rollout."
       },
       {
-        phase: "Development & Testing",
-        description: "Agile development with continuous integration and security testing",
-        duration: "10 months"
-      },
-      {
-        phase: "Deployment & Training",
-        description: "Phased deployment with comprehensive staff training",
-        duration: "3 months"
+        title: "Technical Excellence",
+        description: "Robust, scalable architecture designed for future growth, industry-leading security and compliance frameworks, seamless integration with existing banking ecosystems."
       }
     ],
-    testimonials: [
-      {
-        quote: "The transformation exceeded our expectations. Our customers love the new mobile experience, and our operational efficiency has improved dramatically.",
-        author: "Sarah Johnson",
-        role: "CTO, Global Bank"
-      },
-      {
-        quote: "The security implementation is world-class. We've had zero security incidents since the launch.",
-        author: "Michael Chen",
-        role: "Head of Security, Global Bank"
-      }
-    ]
+    
+    // Testimonial
+    testimonial: {
+      quote: "Triway's expertise and commitment transformed our bank from a traditional institution to a modern, digital-first organization. The results exceeded our expectations, and we now lead the market in digital banking capabilities.",
+      author: "Senior Management",
+      role: "Sahara Bank"
+    },
+    
+    // Ongoing Partnership
+    ongoingPartnership: "Triway continues to support Sahara Bank with comprehensive managed services, including system monitoring, performance optimization, and strategic technology consulting to ensure sustained success and continuous innovation."
   }
 }
 
@@ -116,8 +201,8 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
                 {caseStudy.title}
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8">
-                {caseStudy.fullDescription}
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                {caseStudy.executiveSummary}
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
@@ -130,8 +215,8 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
                   <span>{caseStudy.team}</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600">
-                  <Building2 className="h-5 w-5" />
-                  <span>{caseStudy.client}</span>
+                  <Globe className="h-5 w-5" />
+                  <span>{caseStudy.location}</span>
                 </div>
               </div>
               
@@ -159,33 +244,68 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
         </div>
       </section>
 
-      {/* Challenge & Solution Section */}
+      {/* Client Background Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="card p-8">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                  <Target className="h-6 w-6 text-red-600" />
-                </div>
-                <h2 className="text-2xl font-bold text-gray-900">The Challenge</h2>
+          <div className="card p-8">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <Building2 className="h-6 w-6 text-blue-600" />
               </div>
-              <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-                {caseStudy.detailedChallenge}
-              </p>
+              <h2 className="text-2xl font-bold text-gray-900">Client Background</h2>
             </div>
-            
-            <div className="card p-8">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                  <Sparkles className="h-6 w-6 text-green-600" />
+            <p className="text-gray-600 leading-relaxed text-lg">
+              {caseStudy.clientBackground}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Challenges Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Business Challenges</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Sahara Bank faced critical operational challenges that threatened their competitive position
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudy.challenges.map((challenge, index) => (
+              <div key={index} className="card p-6 border-l-4 border-l-red-500">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Target className="h-4 w-4 text-red-600" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{challenge}</p>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">Our Solution</h2>
               </div>
-              <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-                {caseStudy.detailedSolution}
-              </p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Components Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Solution</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Triway delivered a comprehensive digital banking transformation through four integrated components
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {caseStudy.solutionComponents.map((component, index) => (
+              <div key={index} className="card p-8 group hover:scale-105 transition-transform duration-300">
+                <div className={`w-16 h-16 bg-gradient-to-r ${component.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <component.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{component.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{component.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -194,40 +314,45 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technologies Used</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technology Excellence</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We leveraged cutting-edge technologies to deliver a robust, scalable, and secure banking platform.
+              Core platforms deployed to deliver robust, scalable, and secure banking infrastructure
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudy.technologies.map((tech, index) => (
-              <div key={index} className="card p-6 text-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Code className="h-8 w-8 text-white" />
+              <div key={index} className="card p-6 group hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <tech.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{tech.name}</h3>
+                    <p className="text-gray-600 text-sm">{tech.category}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-gray-900">{tech}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Implementation Phases Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Implementation Excellence</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We followed a structured approach to ensure successful delivery and minimal disruption to banking operations.
+              The transformation was executed through a carefully orchestrated 18-month program
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {caseStudy.process.map((phase, index) => (
+            {caseStudy.implementationPhases.map((phase, index) => (
               <div key={index} className="relative">
                 <div className="card p-6 text-center h-full">
-                  <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${phase.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl`}>
                     {index + 1}
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{phase.phase}</h3>
@@ -237,7 +362,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
                   </span>
                 </div>
                 
-                {index < caseStudy.process.length - 1 && (
+                {index < caseStudy.implementationPhases.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
                     <ArrowRight className="h-6 w-6 text-gray-300" />
                   </div>
@@ -252,59 +377,108 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Results</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Transformational Results</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The transformation delivered measurable improvements across all key performance indicators.
+              The transformation delivered measurable improvements across all key performance indicators
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {caseStudy.results.map((result, index) => (
-              <div key={index} className="card p-6 flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-accent-500 to-accent-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <p className="text-gray-900 font-medium">{result}</p>
-                </div>
+          <div className="space-y-12">
+            {/* Operational Excellence */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Operational Excellence Achieved</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {caseStudy.results.operational.map((result, index) => (
+                  <div key={index} className="card p-6 text-center">
+                    <div className="text-3xl font-bold text-primary-500 mb-2">{result.metric}</div>
+                    <div className="text-lg font-semibold text-gray-900 mb-2">{result.label}</div>
+                    <p className="text-gray-600 text-sm">{result.description}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Customer Experience */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Enhanced Customer Experience</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {caseStudy.results.customer.map((result, index) => (
+                  <div key={index} className="card p-6 text-center">
+                    <div className="text-3xl font-bold text-green-500 mb-2">{result.metric}</div>
+                    <div className="text-lg font-semibold text-gray-900 mb-2">{result.label}</div>
+                    <p className="text-gray-600 text-sm">{result.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Regulatory Compliance */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Regulatory Compliance Strengthened</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {caseStudy.results.compliance.map((result, index) => (
+                  <div key={index} className="card p-6 text-center">
+                    <div className="text-3xl font-bold text-purple-500 mb-2">{result.metric}</div>
+                    <div className="text-lg font-semibold text-gray-900 mb-2">{result.label}</div>
+                    <p className="text-gray-600 text-sm">{result.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Business Growth */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Business Growth Delivered</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {caseStudy.results.business.map((result, index) => (
+                  <div key={index} className="card p-6 text-center">
+                    <div className="text-3xl font-bold text-orange-500 mb-2">{result.metric}</div>
+                    <div className="text-lg font-semibold text-gray-900 mb-2">{result.label}</div>
+                    <p className="text-gray-600 text-sm">{result.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonial Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="card p-12 text-center max-w-4xl mx-auto">
+            <div className="flex items-center space-x-1 mb-6 justify-center">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-gray-700 text-2xl mb-8 italic leading-relaxed">
+              "{caseStudy.testimonial.quote}"
+            </blockquote>
+            <div className="flex items-center justify-center space-x-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
+                <User className="h-8 w-8 text-white" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 text-lg">{caseStudy.testimonial.author}</p>
+                <p className="text-gray-600">{caseStudy.testimonial.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ongoing Partnership Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear directly from our clients about the impact of our solutions.
+          <div className="card p-8 text-center max-w-4xl mx-auto">
+            <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Heart className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Ongoing Partnership</h2>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              {caseStudy.ongoingPartnership}
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {caseStudy.testimonials.map((testimonial, index) => (
-              <div key={index} className="card p-8">
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 text-lg mb-6 italic">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-                    <User className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
