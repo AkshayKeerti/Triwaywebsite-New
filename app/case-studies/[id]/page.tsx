@@ -1,7 +1,7 @@
 import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Calendar, Clock, User, Tag, Shield, Users, CheckCircle, BarChart3, Award, Sparkles, TrendingUp, Zap, Globe, Building2, Target, Star, Eye, Heart, MessageCircle, Code } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calendar, Clock, User, Tag, Shield, Users, CheckCircle, BarChart3, Award, Sparkles, TrendingUp, Zap, Globe, Building2, Target, Star, Eye, Heart, MessageCircle, Code, Database, CreditCard, Monitor, Server, Rocket, Target as TargetIcon } from 'lucide-react'
 import Button from '../../../components/ui/Button'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
