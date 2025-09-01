@@ -107,7 +107,7 @@ const caseStudies = {
         { metric: "50,000+", label: "Mobile Users", description: "Successful digital adoption" },
         { metric: "60%", label: "Reduced Wait Times", description: "Streamlined service delivery" },
         { metric: "40%", label: "Higher Satisfaction", description: "Improved customer experience scores" },
-        { metric: "Continuous", label: "Service Availability", description: "Round-the-clock banking access" }
+        { metric: "Continuous", label: "Service Availability", description: "Reliable banking access" }
       ],
       compliance: [
         { metric: "100%", label: "Regulatory Compliance", description: "Met all Central Bank requirements" },

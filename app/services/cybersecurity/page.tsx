@@ -86,7 +86,7 @@ export default function CybersecurityPage() {
     {
       icon: Eye,
               title: 'Continuous Monitoring',
-      description: 'Round-the-clock security monitoring and response'
+              description: 'Comprehensive security monitoring and response'
     }
   ]
 

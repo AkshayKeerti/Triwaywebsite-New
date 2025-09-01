@@ -21,7 +21,7 @@ export default function AgenticaiPage() {
     {
       icon: Clock,
       title: "Dedicated Support",
-      description: "Round-the-clock support and monitoring for your systems."
+      description: "Professional support and monitoring for your systems."
     },
     {
       icon: Shield,

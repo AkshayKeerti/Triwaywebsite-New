@@ -71,7 +71,7 @@ const TestimonialsSection = () => {
       name: 'Robert Martinez',
       role: 'VP of Operations',
       company: 'E-Commerce Express',
-      content: 'Triway\'s e-commerce solutions helped us scale from a small online store to a major retail platform. Their support team is always available and their solutions are rock-solid.',
+      content: 'Triway\'s e-commerce solutions helped us scale from a small online store to a major retail platform. Their support team is responsive and their solutions are rock-solid.',
       rating: 5,
       image: '/api/placeholder/60/60',
       industry: 'E-commerce',

@@ -111,7 +111,7 @@ export default function ManagedServicesPage() {
     {
       icon: Clock,
               title: 'Dedicated Support',
-      description: 'Round-the-clock monitoring and support for uninterrupted operations'
+              description: 'Professional monitoring and support for reliable operations'
     },
     {
       icon: Zap,
