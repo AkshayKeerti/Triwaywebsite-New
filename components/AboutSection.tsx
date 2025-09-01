@@ -5,8 +5,8 @@ import Button from './ui/Button'
 
 const AboutSection = () => {
   const stats = [
-    { icon: Users, number: '500+', label: 'Happy Clients', color: 'text-primary-500', delay: '0s' },
-    { icon: Target, number: '1000+', label: 'Projects Delivered', color: 'text-secondary-500', delay: '0.2s' },
+    { icon: Users, number: '150+', label: 'Happy Clients', color: 'text-primary-500', delay: '0s' },
+    { icon: Target, number: '200+', label: 'Projects Delivered', color: 'text-secondary-500', delay: '0.2s' },
     { icon: Award, number: '15+', label: 'Years Experience', color: 'text-accent-500', delay: '0.4s' },
     { icon: Clock, number: '24/7', label: 'Support Available', color: 'text-primary-500', delay: '0.6s' }
   ]

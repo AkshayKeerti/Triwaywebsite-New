@@ -106,7 +106,7 @@ export default function DesignExperiencePage() {
   ]
 
   const stats = [
-    { number: '150+', label: 'Design Projects' },
+    { number: '200+', label: 'Design Projects' },
     { number: '95%', label: 'User Satisfaction' },
     { number: '40%', label: 'Conversion Increase' },
     { number: '24/7', label: 'Design Support' }

@@ -81,12 +81,12 @@ const TestimonialsSection = () => {
 
   const successMetrics = [
     {
-      number: '500+',
+      number: '150+',
       label: 'Happy Clients',
       description: 'Satisfied customers across industries'
     },
     {
-      number: '1000+',
+      number: '200+',
       label: 'Projects Delivered',
       description: 'Successful implementations worldwide'
     },

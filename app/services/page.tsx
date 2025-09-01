@@ -34,7 +34,7 @@ export default function ServicesPage() {
         'Infrastructure & Software Migration',
         'Virtualization & Telecom'
       ],
-      stats: { clients: '200+', uptime: '99.9%', response: '<15min' },
+      stats: { clients: '150+', uptime: '99.9%', response: '<15min' },
       href: '/services/managed-services'
     },
     {
@@ -119,7 +119,7 @@ export default function ServicesPage() {
         'Web & Mobile Tech',
         'UI/UX & Product Consulting'
       ],
-      stats: { projects: '200+', clients: '50+', satisfaction: '99%' },
+      stats: { projects: '200+', clients: '150+', satisfaction: '99%' },
       href: '/services/software-solutions'
     },
     {
@@ -137,7 +137,7 @@ export default function ServicesPage() {
         'Journey Mapping',
         'Branding & Visual Design'
       ],
-      stats: { projects: '150+', satisfaction: '95%', conversion: '40%' },
+      stats: { projects: '200+', satisfaction: '95%', conversion: '40%' },
       href: '/services/design-experience'
     }
   ]
@@ -199,7 +199,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>500+ Projects Delivered</span>
+                <span>200+ Projects Delivered</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />

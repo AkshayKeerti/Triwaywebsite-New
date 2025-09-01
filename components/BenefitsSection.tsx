@@ -30,7 +30,7 @@ const BenefitsSection = () => {
     },
     {
       icon: Users,
-      title: '500+ Happy Clients',
+      title: '150+ Happy Clients',
       description: 'Trusted by businesses worldwide, from startups to Fortune 500 companies, with a 98% client satisfaction rate.',
       color: 'from-secondary-500 to-secondary-600',
       delay: '0.2s'
@@ -79,7 +79,7 @@ const BenefitsSection = () => {
     {
       title: 'Proven Results',
       subtitle: 'Track record of successful implementations',
-      description: '1000+ successful projects delivered on time and within budget, with measurable business outcomes.',
+      description: '200+ successful projects delivered on time and within budget, with measurable business outcomes.',
       icon: TrendingUp,
       color: 'from-orange-500 to-orange-600',
       features: ['99.9% project success rate', 'On-time delivery', 'Budget adherence', 'Measurable ROI']

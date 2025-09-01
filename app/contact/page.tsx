@@ -349,7 +349,7 @@ export default function ContactPage() {
                 <Building className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Proven Track Record</h3>
-              <p className="text-gray-600">500+ successful projects across 15+ industries</p>
+              <p className="text-gray-600">200+ successful projects across 15+ industries</p>
             </div>
             
             <div className="text-center">

@@ -92,7 +92,7 @@ export default function SoftwareSolutionsPage() {
 
   const stats = [
     { number: '200+', label: 'Projects Delivered' },
-    { number: '50+', label: 'Happy Clients' },
+    { number: '150+', label: 'Happy Clients' },
     { number: '99%', label: 'Client Satisfaction' },
     { number: '24/7', label: 'Support' }
   ]

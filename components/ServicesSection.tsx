@@ -37,7 +37,7 @@ const ServicesSection = () => {
         'Infrastructure & Software Migration',
         'Virtualization & Telecom'
       ],
-      stats: { clients: '200+', uptime: '99.9%', response: '<15min' }
+      stats: { clients: '150+', uptime: '99.9%', response: '<15min' }
     },
     {
       icon: Cloud,
@@ -127,7 +127,7 @@ const ServicesSection = () => {
         'Journey Mapping',
         'Branding & Visual Design'
       ],
-      stats: { projects: '150+', satisfaction: '98%', awards: '25+' }
+      stats: { projects: '200+', satisfaction: '98%', awards: '25+' }
     }
   ]
 

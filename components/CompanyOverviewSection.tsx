@@ -20,14 +20,14 @@ const CompanyOverviewSection = () => {
   const achievements = [
     {
       icon: Users,
-      number: '500+',
+      number: '150+',
       label: 'Happy Clients',
       description: 'Trusted by businesses across industries',
       color: 'from-primary-500 to-primary-600'
     },
     {
       icon: Target,
-      number: '1000+',
+      number: '200+',
       label: 'Projects Delivered',
       description: 'Successfully completed projects worldwide',
       color: 'from-secondary-500 to-secondary-600'
