@@ -52,11 +52,11 @@ export default function InfrastructurePage() {
     },
     {
       title: 'Infrastructure Monitoring & Support',
-      description: '24/7 infrastructure monitoring and proactive support for optimal performance.',
+              description: 'Continuous infrastructure monitoring and proactive support for optimal performance.',
       icon: Monitor,
       color: 'from-purple-500 to-purple-600',
       features: [
-        '24/7 monitoring',
+        'Continuous monitoring',
         'Proactive maintenance',
         'Performance tracking',
         'Alert management',
@@ -81,7 +81,7 @@ export default function InfrastructurePage() {
     {
       icon: CheckCircle,
       title: 'Expert Support',
-      description: '24/7 monitoring and support from certified professionals'
+              description: 'Continuous monitoring and support from certified professionals'
     },
     {
       icon: Zap,
@@ -92,7 +92,7 @@ export default function InfrastructurePage() {
 
   const stats = [
     { number: '99.9%', label: 'Uptime' },
-    { number: '24/7', label: 'Monitoring' },
+            { number: 'Continuous', label: 'Monitoring' },
     { number: '500+', label: 'Deployments' },
     { number: '15min', label: 'Response Time' }
   ]

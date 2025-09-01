@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function EndtoenditsupportPage() {
   const features = [
-  "24/7 IT infrastructure monitoring and support",
+  "dedicated IT infrastructure monitoring and support",
   "Proactive maintenance and updates",
   "Help desk and technical support",
   "Network security and management",
@@ -21,7 +21,7 @@ export default function EndtoenditsupportPage() {
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {
@@ -77,7 +77,7 @@ export default function EndtoenditsupportPage() {
     },
     {
       title: "Incident Response & IT Consulting",
-      description: "24/7 incident response and strategic IT consulting services.",
+      description: "rapid incident response and strategic IT consulting services.",
       href: "/services/managed-services/incident-response-consulting"
     },
     {

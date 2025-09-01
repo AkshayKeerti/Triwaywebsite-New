@@ -31,7 +31,7 @@ export default function CybersecurityPage() {
         'Email security monitoring',
         'Threat intelligence',
         'Incident response',
-        '24/7 monitoring'
+        'Continuous monitoring'
       ],
       href: '/services/cybersecurity/threat-detection'
     },
@@ -85,7 +85,7 @@ export default function CybersecurityPage() {
     },
     {
       icon: Eye,
-      title: '24/7 Monitoring',
+              title: 'Continuous Monitoring',
       description: 'Round-the-clock security monitoring and response'
     }
   ]
@@ -94,7 +94,7 @@ export default function CybersecurityPage() {
     { number: '10M+', label: 'Threats Blocked' },
     { number: '0', label: 'Security Incidents' },
     { number: '100%', label: 'Coverage' },
-    { number: '24/7', label: 'Monitoring' }
+            { number: 'Continuous', label: 'Monitoring' }
   ]
 
   const threats = [

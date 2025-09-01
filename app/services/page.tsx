@@ -203,7 +203,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>24/7 Support</span>
+                <span>Dedicated Support</span>
               </div>
             </div>
           </div>

@@ -60,7 +60,7 @@ export default function AboutPage() {
     { number: "200+", label: "Projects Delivered" },
     { number: "50+", label: "Team Members" },
     { number: "98%", label: "Client Satisfaction" },
-    { number: "24/7", label: "Support Available" }
+            { number: "Dedicated", label: "Support Available" }
   ]
 
   return (

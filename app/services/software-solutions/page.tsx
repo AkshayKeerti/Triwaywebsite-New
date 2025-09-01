@@ -94,7 +94,7 @@ export default function SoftwareSolutionsPage() {
     { number: '200+', label: 'Projects Delivered' },
     { number: '150+', label: 'Happy Clients' },
     { number: '99%', label: 'Client Satisfaction' },
-    { number: '24/7', label: 'Support' }
+            { number: 'Dedicated', label: 'Support' }
   ]
 
   const technologies = [

@@ -25,7 +25,7 @@ const TestimonialsSection = () => {
       rating: 5,
       image: '/api/placeholder/60/60',
       industry: 'Technology',
-      results: ['40% cost reduction', '99.9% uptime', '24/7 support']
+              results: ['40% cost reduction', '99.9% uptime', 'Dedicated support']
     },
     {
       name: 'Michael Chen',
@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
       rating: 5,
       image: '/api/placeholder/60/60',
       industry: 'E-commerce',
-      results: ['Scalable growth', '24/7 support', 'Reliable platform']
+              results: ['Scalable growth', 'Dedicated support', 'Reliable platform']
     }
   ]
 

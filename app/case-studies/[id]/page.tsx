@@ -57,7 +57,7 @@ const caseStudies = {
       },
       {
         title: "Comprehensive Support Framework",
-        description: "24/7 system monitoring, proactive maintenance, disaster recovery, and continuous improvement services",
+        description: "Continuous system monitoring, proactive maintenance, disaster recovery, and continuous improvement services",
         icon: Server,
         color: "from-orange-500 to-orange-600"
       }
@@ -107,7 +107,7 @@ const caseStudies = {
         { metric: "50,000+", label: "Mobile Users", description: "Successful digital adoption" },
         { metric: "60%", label: "Reduced Wait Times", description: "Streamlined service delivery" },
         { metric: "40%", label: "Higher Satisfaction", description: "Improved customer experience scores" },
-        { metric: "24/7", label: "Service Availability", description: "Round-the-clock banking access" }
+        { metric: "Continuous", label: "Service Availability", description: "Round-the-clock banking access" }
       ],
       compliance: [
         { metric: "100%", label: "Regulatory Compliance", description: "Met all Central Bank requirements" },

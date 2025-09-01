@@ -11,7 +11,7 @@ export default function ManagedServicesPage() {
       icon: Headphones,
       color: 'from-blue-500 to-blue-600',
       features: [
-        '24/7 IT support and monitoring',
+        'Dedicated IT support and monitoring',
         'Infrastructure management',
         'Help desk services',
         'Proactive maintenance',
@@ -52,11 +52,11 @@ export default function ManagedServicesPage() {
     },
     {
       title: 'Incident Response & IT Consulting',
-      description: '24/7 incident response and strategic IT consulting services to keep your business running smoothly.',
+              description: 'Rapid incident response and strategic IT consulting services to keep your business running smoothly.',
       icon: Clock,
       color: 'from-red-500 to-red-600',
       features: [
-        '24/7 incident response',
+        'Rapid incident response',
         'Strategic IT consulting',
         'Emergency support',
         'Root cause analysis',
@@ -110,7 +110,7 @@ export default function ManagedServicesPage() {
     },
     {
       icon: Clock,
-      title: '24/7 Support',
+              title: 'Dedicated Support',
       description: 'Round-the-clock monitoring and support for uninterrupted operations'
     },
     {
@@ -149,7 +149,7 @@ export default function ManagedServicesPage() {
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Complete IT outsourcing and support solutions that keep your business running smoothly, 
-              securely, and efficiently. From 24/7 monitoring to strategic consulting, we handle your 
+              securely, and efficiently. From continuous monitoring to strategic consulting, we handle your 
               IT infrastructure so you can focus on your core business.
             </p>
             

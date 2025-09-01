@@ -15,13 +15,13 @@ export default function HardwaresolutionsPage() {
   "Performance optimization",
   "Hardware lifecycle management",
   "Disaster recovery planning",
-  "24/7 support"
+      "Dedicated support"
 ]
 
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {
@@ -77,7 +77,7 @@ export default function HardwaresolutionsPage() {
     },
     {
       title: "Infrastructure Monitoring & Support",
-      description: "24/7 infrastructure monitoring and proactive support.",
+              description: "Continuous infrastructure monitoring and proactive support.",
       href: "/services/infrastructure/infrastructure-monitoring-support"
     }
   ]

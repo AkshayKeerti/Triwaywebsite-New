@@ -94,7 +94,7 @@ export default function CloudServicesPage() {
     { number: '500+', label: 'Cloud Deployments' },
     { number: '40%', label: 'Cost Savings' },
     { number: '99.95%', label: 'Uptime' },
-    { number: '24/7', label: 'Monitoring' }
+            { number: 'Continuous', label: 'Monitoring' }
   ]
 
   return (

@@ -15,13 +15,13 @@ export default function ConversationalaiPage() {
   "Integration with existing systems",
   "Analytics and insights",
   "Continuous learning",
-  "24/7 availability"
+      "Continuous availability"
 ]
 
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {

@@ -78,7 +78,7 @@ const Header = () => {
         { title: 'End-to-End IT Support & Outsourcing', description: 'Comprehensive IT infrastructure management and support services.' },
         { title: 'AMC & Vendor Support', description: 'Annual maintenance contracts for Fortinet, Sophos, Juniper, Microsoft solutions.' },
         { title: 'Project & Facility Management', description: 'End-to-end project delivery and facility IT infrastructure management.' },
-        { title: 'Incident Response & IT Consulting', description: '24/7 incident response and strategic IT consulting services.' },
+        { title: 'Incident Response & IT Consulting', description: 'Rapid incident response and strategic IT consulting services.' },
         { title: 'Infrastructure & Software Migration', description: 'Seamless migration of infrastructure and software systems.' },
         { title: 'Virtualization & Telecom Services', description: 'Advanced virtualization solutions and telecommunications services.' }
       ]
@@ -119,7 +119,7 @@ const Header = () => {
         { title: 'On-Prem Servers & Networking', description: 'Enterprise-grade on-premise server and networking solutions.' },
         { title: 'Hardware Solutions', description: 'Dell, Fortinet, Juniper, APC hardware implementation and support.' },
         { title: 'Power Backup & Physical Infra Setup', description: 'Comprehensive power backup and physical infrastructure setup.' },
-        { title: 'Infrastructure Monitoring & Support', description: '24/7 infrastructure monitoring and proactive support.' }
+        { title: 'Infrastructure Monitoring & Support', description: 'Continuous infrastructure monitoring and proactive support.' }
       ]
     },
     {

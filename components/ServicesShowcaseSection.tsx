@@ -28,7 +28,7 @@ const ServicesShowcaseSection = () => {
       title: 'Managed IT Services',
       description: 'Complete IT outsourcing and support solutions for businesses of all sizes',
       features: [
-        '24/7 IT Support & Helpdesk',
+        'Dedicated IT Support & Helpdesk',
         'Network Monitoring & Management',
         'Hardware & Software Maintenance',
         'Vendor Management & AMC',

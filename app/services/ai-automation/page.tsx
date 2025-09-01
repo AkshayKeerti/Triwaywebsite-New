@@ -123,7 +123,7 @@ export default function AIAutomationPage() {
   const stats = [
     { number: '60%', label: 'Efficiency Gain' },
     { number: '40%', label: 'Cost Reduction' },
-    { number: '24/7', label: 'Automation' },
+            { number: 'Continuous', label: 'Automation' },
     { number: '100+', label: 'AI Models' }
   ]
 

@@ -21,7 +21,7 @@ export default function OnpremserversnetworkingPage() {
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {
@@ -77,7 +77,7 @@ export default function OnpremserversnetworkingPage() {
     },
     {
       title: "Infrastructure Monitoring & Support",
-      description: "24/7 infrastructure monitoring and proactive support.",
+      description: "continuous infrastructure monitoring and proactive support.",
       href: "/services/infrastructure/infrastructure-monitoring-support"
     }
   ]

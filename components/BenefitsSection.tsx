@@ -38,13 +38,13 @@ const BenefitsSection = () => {
     {
       icon: Shield,
       title: 'Enterprise-Grade Security',
-      description: 'Bank-level security protocols, SOC 2 compliance, and 24/7 threat monitoring to protect your business.',
+              description: 'Bank-level security protocols, SOC 2 compliance, and continuous threat monitoring to protect your business.',
       color: 'from-accent-500 to-accent-600',
       delay: '0.4s'
     },
     {
       icon: Clock,
-      title: '24/7 Support & Monitoring',
+              title: 'Dedicated Support & Monitoring',
       description: 'Round-the-clock technical support, proactive monitoring, and rapid response times to keep your systems running.',
       color: 'from-primary-500 to-primary-600',
       delay: '0.6s'

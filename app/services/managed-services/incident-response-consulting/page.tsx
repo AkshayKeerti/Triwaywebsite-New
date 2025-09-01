@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function IncidentresponseconsultingPage() {
   const features = [
-  "24/7 incident monitoring",
+  "continuous incident monitoring",
   "Rapid response protocols",
   "Forensic analysis and investigation",
   "Recovery planning and execution",
@@ -21,7 +21,7 @@ export default function IncidentresponseconsultingPage() {
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {
@@ -116,7 +116,7 @@ export default function IncidentresponseconsultingPage() {
                 Incident Response & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">IT Consulting</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                24/7 incident response and strategic IT consulting services.
+                rapid incident response and strategic IT consulting services.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button href="#contact" variant="primary" icon={ArrowRight}>

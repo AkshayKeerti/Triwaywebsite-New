@@ -21,7 +21,7 @@ export default function InfrastructuresoftwaremigrationPage() {
   const benefits = [
     {
       icon: Clock,
-      title: "24/7 Support",
+      title: "Dedicated Support",
       description: "Round-the-clock support and monitoring for your systems."
     },
     {
@@ -82,7 +82,7 @@ export default function InfrastructuresoftwaremigrationPage() {
     },
     {
       title: "Incident Response & IT Consulting",
-      description: "24/7 incident response and strategic IT consulting services.",
+      description: "rapid incident response and strategic IT consulting services.",
       href: "/services/managed-services/incident-response-consulting"
     },
     {
