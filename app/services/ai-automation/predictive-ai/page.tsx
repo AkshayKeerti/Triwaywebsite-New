@@ -200,7 +200,7 @@ export default function PredictiveaiPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
               <div key={index} className="relative">
-                <div className="card p-8 text-center">
+                <div className="card p-8 text-center h-full">
                   <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="text-white font-bold text-xl">{step.step}</span>
                   </div>
