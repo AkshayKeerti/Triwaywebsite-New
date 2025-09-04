@@ -33,8 +33,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   // Filter posts based on search parameters
   let filteredPosts = blogPosts
-  const selectedCategory = searchParams.category
-  const selectedTags = searchParams.tags?.split(',').filter(Boolean) || []
+  const selectedCategory = searchParams.category ? decodeURIComponent(searchParams.category) : undefined
+  const selectedTags = searchParams.tags?.split(',').filter(Boolean).map(tag => decodeURIComponent(tag)) || []
 
   // Apply category filter
   if (selectedCategory) {
