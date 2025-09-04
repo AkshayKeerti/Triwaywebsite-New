@@ -48,8 +48,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     )
   }
 
-  // Get featured post (first post from filtered results, or first overall if no filter)
-  const featuredPost = filteredPosts[0] || blogPosts[0] || fallbackBlogPosts[0]
+  // Get featured post (always first overall, regardless of filters)
+  const featuredPost = blogPosts[0] || fallbackBlogPosts[0]
   
   // Get recent posts (excluding featured post)
   const recentPosts = blogPosts
@@ -338,8 +338,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
-                {filteredPosts.slice(1).length > 0 ? (
-                  filteredPosts.slice(1).map((post, index) => (
+                {filteredPosts.length > 0 ? (
+                  filteredPosts.map((post, index) => (
                     <Link key={post.id} href={`/blog/${post.slug}`} className="card overflow-hidden group cursor-pointer">
                       <div className="relative">
                         <Image
