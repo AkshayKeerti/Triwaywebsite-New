@@ -13,6 +13,7 @@ export const revalidate = 60 // Revalidate every 60 seconds
 interface BlogPageProps {
   searchParams: {
     category?: string
+    sort?: string
   }
 }
 
@@ -33,10 +34,39 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   // Filter posts based on search parameters
   let filteredPosts = blogPosts
   const selectedCategory = searchParams.category ? decodeURIComponent(searchParams.category) : undefined
+  const selectedSort = searchParams.sort || 'newest'
 
   // Apply category filter
   if (selectedCategory) {
     filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
+  }
+
+  // Apply sorting
+  switch (selectedSort) {
+    case 'oldest':
+      filteredPosts = filteredPosts.sort((a, b) => new Date(a.publishDate).getTime() - new Date(b.publishDate).getTime())
+      break
+    case 'popular':
+      filteredPosts = filteredPosts.sort((a, b) => b.views - a.views)
+      break
+    case 'liked':
+      filteredPosts = filteredPosts.sort((a, b) => b.likes - a.likes)
+      break
+    case 'readTime':
+      filteredPosts = filteredPosts.sort((a, b) => {
+        const aTime = parseInt(a.readTime.match(/\d+/)?.[0] || '0')
+        const bTime = parseInt(b.readTime.match(/\d+/)?.[0] || '0')
+        return aTime - bTime
+      })
+      break
+    case 'alphabetical':
+      filteredPosts = filteredPosts.sort((a, b) => a.title.localeCompare(b.title))
+      break
+    case 'alphabetical-desc':
+      filteredPosts = filteredPosts.sort((a, b) => b.title.localeCompare(a.title))
+      break
+    default: // newest
+      filteredPosts = filteredPosts.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
   }
 
 
@@ -305,9 +335,70 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     </span>
                   )}
                 </h2>
-                <div className="flex items-center space-x-2">
-                  <Filter className="h-5 w-5 text-gray-400" />
-                  <span className="text-sm text-gray-600">Filter</span>
+                <div className="relative group">
+                  <button className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                    <Filter className="h-5 w-5 text-gray-400" />
+                    <span className="text-sm text-gray-600">
+                      {selectedSort === 'newest' && 'Newest First'}
+                      {selectedSort === 'oldest' && 'Oldest First'}
+                      {selectedSort === 'popular' && 'Most Popular'}
+                      {selectedSort === 'liked' && 'Most Liked'}
+                      {selectedSort === 'readTime' && 'Quick Reads'}
+                      {selectedSort === 'alphabetical' && 'A-Z'}
+                      {selectedSort === 'alphabetical-desc' && 'Z-A'}
+                    </span>
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                    <div className="py-1">
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=newest` : '?sort=newest'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'newest' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Newest First
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=oldest` : '?sort=oldest'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'oldest' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Oldest First
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=popular` : '?sort=popular'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'popular' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Most Popular
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=liked` : '?sort=liked'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'liked' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Most Liked
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=readTime` : '?sort=readTime'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'readTime' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Quick Reads
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=alphabetical` : '?sort=alphabetical'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'alphabetical' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        A-Z
+                      </Link>
+                      <Link 
+                        href={`/blog${selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}&sort=alphabetical-desc` : '?sort=alphabetical-desc'}`}
+                        className={`block px-4 py-2 text-sm ${selectedSort === 'alphabetical-desc' ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        Z-A
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
               
