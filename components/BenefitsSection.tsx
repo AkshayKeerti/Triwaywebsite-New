@@ -44,7 +44,7 @@ const BenefitsSection = () => {
     },
     {
       icon: Clock,
-              title: 'Dedicated Support & Monitoring',
+              title: 'Dedicated Support',
               description: 'Professional technical support, proactive monitoring, and rapid response times to keep your systems running.',
       color: 'from-primary-500 to-primary-600',
       delay: '0.6s'
