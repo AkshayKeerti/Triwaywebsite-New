@@ -1,7 +1,7 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle, ShoppingCart, GraduationCap, Film, Gamepad2, Megaphone, Smartphone, BarChart3, Brain, Settings, Link, Database, Monitor, Server, Layers, Target, CheckCircle, Lock, AlertTriangle } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle, ShoppingCart, GraduationCap, Film, Gamepad2, Megaphone, Smartphone, BarChart3, Brain, Settings, Link as LinkIcon, Database, Monitor, Server, Layers, Target, CheckCircle, Lock, AlertTriangle } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import Image from 'next/image'
 import { getBlogPosts, getCategories, BlogPost, Category } from '../../lib/contentful'
@@ -49,7 +49,7 @@ export default async function BlogPage() {
     "Data Analytics": BarChart3,
     "Machine Learning": Brain,
     "DevOps": Settings,
-    "API Development": Link,
+    "API Development": LinkIcon,
     "Database": Database,
     "Frontend": Monitor,
     "Backend": Server,
