@@ -144,7 +144,7 @@ export default async function BlogPage() {
               const color = categoryColors[category.name as keyof typeof categoryColors] || "from-gray-500 to-gray-600"
               
               return (
-                <div key={index} className="card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <Link key={index} href={`/blog?category=${category.name}`} className="card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer">
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 bg-gradient-to-r ${color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="h-6 w-6 text-white" />
@@ -155,7 +155,7 @@ export default async function BlogPage() {
                     </div>
                     <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
                   </div>
-                </div>
+                </Link>
               )
             })}
           </div>
