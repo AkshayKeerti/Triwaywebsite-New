@@ -4,103 +4,46 @@ import Link from 'next/link'
 import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import Image from 'next/image'
+import { getBlogPosts, getCategories, BlogPost, Category } from '../../lib/contentful'
+import { fallbackBlogPosts, fallbackCategories } from '../../lib/fallbackData'
 
-export default function BlogPage() {
-  const featuredPost = {
-    title: "The Future of AI in Enterprise: 2024 Trends and Predictions",
-    excerpt: "Discover how artificial intelligence is reshaping enterprise operations and what businesses need to know to stay competitive in the rapidly evolving AI landscape.",
-    author: "Sarah Johnson",
-    date: "March 15, 2024",
-    readTime: "8 min read",
-    category: "Artificial Intelligence",
-    image: "/dubai.png",
-    views: "2.5k",
-    likes: "156"
+export default async function BlogPage() {
+  // Try to fetch from Contentful, fallback to static data
+  let blogPosts: BlogPost[] = []
+  let categories: Category[] = []
+  
+  try {
+    blogPosts = await getBlogPosts()
+    categories = await getCategories()
+  } catch (error) {
+    console.log('Using fallback data')
+    blogPosts = fallbackBlogPosts
+    categories = fallbackCategories
   }
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Cybersecurity Best Practices for Remote Work",
-      excerpt: "Essential security measures organizations should implement to protect their data and systems in the remote work era.",
-      author: "Michael Chen",
-      date: "March 12, 2024",
-      readTime: "6 min read",
-      category: "Cybersecurity",
-      image: "/dubai.png",
-      views: "1.8k",
-      likes: "89"
-    },
-    {
-      id: 2,
-      title: "Cloud Migration Strategies: A Comprehensive Guide",
-      excerpt: "Step-by-step approach to successfully migrating your infrastructure to the cloud while minimizing downtime and risks.",
-      author: "Emily Rodriguez",
-      date: "March 10, 2024",
-      readTime: "10 min read",
-      category: "Cloud Computing",
-      image: "/dubai.png",
-      views: "2.1k",
-      likes: "124"
-    },
-    {
-      id: 3,
-      title: "Building Scalable Microservices Architecture",
-      excerpt: "Learn the principles and best practices for designing and implementing scalable microservices for modern applications.",
-      author: "David Kim",
-      date: "March 8, 2024",
-      readTime: "12 min read",
-      category: "Software Development",
-      image: "/dubai.png",
-      views: "1.6k",
-      likes: "78"
-    },
-    {
-      id: 4,
-      title: "UX Design Trends That Will Dominate 2024",
-      excerpt: "Explore the latest user experience design trends that are shaping the digital landscape and user expectations.",
-      author: "Emily Rodriguez",
-      date: "March 5, 2024",
-      readTime: "7 min read",
-      category: "Design & UX",
-      image: "/dubai.png",
-      views: "1.9k",
-      likes: "95"
-    },
-    {
-      id: 5,
-      title: "Digital Transformation in Healthcare",
-      excerpt: "How technology is revolutionizing patient care and healthcare operations in the digital age.",
-      author: "Sarah Johnson",
-      date: "March 3, 2024",
-      readTime: "9 min read",
-      category: "Healthcare Tech",
-      image: "/dubai.png",
-      views: "1.4k",
-      likes: "67"
-    },
-    {
-      id: 6,
-      title: "The Rise of Edge Computing in IoT",
-      excerpt: "Understanding how edge computing is enabling faster, more efficient IoT deployments and real-time data processing.",
-      author: "Michael Chen",
-      date: "March 1, 2024",
-      readTime: "8 min read",
-      category: "IoT & Edge Computing",
-      image: "/dubai.png",
-      views: "1.2k",
-      likes: "56"
-    }
-  ]
+  const featuredPost = blogPosts[0] || fallbackBlogPosts[0]
 
-  const categories = [
-    { name: "Artificial Intelligence", icon: Zap, count: 15, color: "from-yellow-500 to-orange-500" },
-    { name: "Cybersecurity", icon: Shield, count: 12, color: "from-red-500 to-red-600" },
-    { name: "Cloud Computing", icon: Cloud, count: 18, color: "from-blue-500 to-blue-600" },
-    { name: "Software Development", icon: Code, count: 22, color: "from-indigo-500 to-indigo-600" },
-    { name: "Design & UX", icon: Palette, count: 14, color: "from-pink-500 to-pink-600" },
-    { name: "Digital Transformation", icon: TrendingUp, count: 16, color: "from-green-500 to-green-600" }
-  ]
+  const categoryIcons = {
+    "Artificial Intelligence": Zap,
+    "Cybersecurity": Shield,
+    "Cloud Computing": Cloud,
+    "Software Development": Code,
+    "Design & UX": Palette,
+    "Digital Transformation": TrendingUp,
+    "Healthcare Tech": Users,
+    "IoT & Edge Computing": Globe
+  }
+
+  const categoryColors = {
+    "Artificial Intelligence": "from-yellow-500 to-orange-500",
+    "Cybersecurity": "from-red-500 to-red-600",
+    "Cloud Computing": "from-blue-500 to-blue-600",
+    "Software Development": "from-indigo-500 to-indigo-600",
+    "Design & UX": "from-pink-500 to-pink-600",
+    "Digital Transformation": "from-green-500 to-green-600",
+    "Healthcare Tech": "from-purple-500 to-purple-600",
+    "IoT & Edge Computing": "from-teal-500 to-teal-600"
+  }
 
   const popularTags = [
     "AI", "Machine Learning", "Cybersecurity", "Cloud", "DevOps", "UX Design", 
@@ -149,20 +92,25 @@ export default function BlogPage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category, index) => (
-              <div key={index} className="card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <category.icon className="h-6 w-6 text-white" />
+            {categories.map((category, index) => {
+              const IconComponent = categoryIcons[category.name as keyof typeof categoryIcons] || TrendingUp
+              const color = categoryColors[category.name as keyof typeof categoryColors] || "from-gray-500 to-gray-600"
+              
+              return (
+                <div key={index} className="card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer">
+                  <div className="flex items-center space-x-4">
+                    <div className={`w-12 h-12 bg-gradient-to-r ${color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900">{category.name}</h3>
+                      <p className="text-gray-600">{category.count} articles</p>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900">{category.name}</h3>
-                    <p className="text-gray-600">{category.count} articles</p>
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -195,7 +143,11 @@ export default function BlogPage() {
                 <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
                   <div className="flex items-center space-x-1">
                     <Calendar className="h-4 w-4" />
-                    <span>{featuredPost.date}</span>
+                    <span>{new Date(featuredPost.publishDate).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Clock className="h-4 w-4" />
@@ -214,7 +166,7 @@ export default function BlogPage() {
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <Eye className="h-4 w-4" />
-                      <span>{featuredPost.views}</span>
+                      <span>{featuredPost.views.toLocaleString()}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Heart className="h-4 w-4" />
@@ -222,7 +174,7 @@ export default function BlogPage() {
                     </div>
                   </div>
                   
-                  <Link href={`/blog/${featuredPost.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                  <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -253,12 +205,12 @@ export default function BlogPage() {
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
-                {blogPosts.map((post, index) => (
+                {blogPosts.slice(1).map((post, index) => (
                   <div key={post.id} className="card overflow-hidden group">
                     <div className="relative">
                       <Image
-                        src={post.image}
-                        alt={post.title}
+                        src={post.image.url}
+                        alt={post.image.alt}
                         width={400}
                         height={250}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -274,7 +226,11 @@ export default function BlogPage() {
                       <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
                         <div className="flex items-center space-x-1">
                           <Calendar className="h-4 w-4" />
-                          <span>{post.date}</span>
+                          <span>{new Date(post.publishDate).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Clock className="h-4 w-4" />
@@ -289,7 +245,7 @@ export default function BlogPage() {
                         <div className="flex items-center space-x-4 text-sm text-gray-500">
                           <div className="flex items-center space-x-1">
                             <Eye className="h-4 w-4" />
-                            <span>{post.views}</span>
+                            <span>{post.views.toLocaleString()}</span>
                           </div>
                           <div className="flex items-center space-x-1">
                             <Heart className="h-4 w-4" />
@@ -297,7 +253,7 @@ export default function BlogPage() {
                           </div>
                         </div>
                         
-                        <Link href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                        <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
@@ -356,15 +312,19 @@ export default function BlogPage() {
                     {blogPosts.slice(0, 3).map((post, index) => (
                       <div key={index} className="flex space-x-3">
                         <Image
-                          src={post.image}
-                          alt={post.title}
+                          src={post.image.url}
+                          alt={post.image.alt}
                           width={60}
                           height={60}
                           className="w-15 h-15 object-cover rounded-lg"
                         />
                         <div>
                           <h4 className="font-semibold text-gray-900 text-sm line-clamp-2">{post.title}</h4>
-                          <p className="text-gray-500 text-xs">{post.date}</p>
+                          <p className="text-gray-500 text-xs">{new Date(post.publishDate).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}</p>
                         </div>
                       </div>
                     ))}
