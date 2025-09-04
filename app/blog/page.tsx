@@ -1,7 +1,7 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
-import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, User, Tag, Search, Filter, TrendingUp, Zap, Shield, Cloud, Code, Palette, Users, Globe, BookOpen, Eye, Heart, MessageCircle, ShoppingCart, GraduationCap, Film, Gamepad2, Megaphone, Smartphone, BarChart3, Brain, Settings, Link, Database, Monitor, Server, Layers, Target, CheckCircle, Lock, AlertTriangle } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import Image from 'next/image'
 import { getBlogPosts, getCategories, BlogPost, Category } from '../../lib/contentful'
@@ -38,7 +38,29 @@ export default async function BlogPage() {
     "Design & UX": Palette,
     "Digital Transformation": TrendingUp,
     "Healthcare Tech": Users,
-    "IoT & Edge Computing": Globe
+    "IoT & Edge Computing": Globe,
+    "Banking & Finance": BookOpen,
+    "E-commerce": ShoppingCart,
+    "Education": GraduationCap,
+    "Entertainment": Film,
+    "Gaming": Gamepad2,
+    "Marketing": Megaphone,
+    "Mobile Development": Smartphone,
+    "Data Analytics": BarChart3,
+    "Machine Learning": Brain,
+    "DevOps": Settings,
+    "API Development": Link,
+    "Database": Database,
+    "Frontend": Monitor,
+    "Backend": Server,
+    "Full Stack": Layers,
+    "UI/UX": Eye,
+    "Product Management": Target,
+    "Agile": Users,
+    "Testing": CheckCircle,
+    "Security": Lock,
+    "Compliance": Shield,
+    "Risk Management": AlertTriangle
   }
 
   const categoryColors = {
@@ -49,7 +71,29 @@ export default async function BlogPage() {
     "Design & UX": "from-pink-500 to-pink-600",
     "Digital Transformation": "from-green-500 to-green-600",
     "Healthcare Tech": "from-purple-500 to-purple-600",
-    "IoT & Edge Computing": "from-teal-500 to-teal-600"
+    "IoT & Edge Computing": "from-teal-500 to-teal-600",
+    "Banking & Finance": "from-emerald-500 to-emerald-600",
+    "E-commerce": "from-orange-500 to-orange-600",
+    "Education": "from-blue-500 to-blue-600",
+    "Entertainment": "from-purple-500 to-purple-600",
+    "Gaming": "from-pink-500 to-pink-600",
+    "Marketing": "from-red-500 to-red-600",
+    "Mobile Development": "from-indigo-500 to-indigo-600",
+    "Data Analytics": "from-cyan-500 to-cyan-600",
+    "Machine Learning": "from-yellow-500 to-yellow-600",
+    "DevOps": "from-gray-500 to-gray-600",
+    "API Development": "from-blue-500 to-blue-600",
+    "Database": "from-green-500 to-green-600",
+    "Frontend": "from-purple-500 to-purple-600",
+    "Backend": "from-orange-500 to-orange-600",
+    "Full Stack": "from-indigo-500 to-indigo-600",
+    "UI/UX": "from-pink-500 to-pink-600",
+    "Product Management": "from-red-500 to-red-600",
+    "Agile": "from-blue-500 to-blue-600",
+    "Testing": "from-green-500 to-green-600",
+    "Security": "from-red-500 to-red-600",
+    "Compliance": "from-yellow-500 to-yellow-600",
+    "Risk Management": "from-orange-500 to-orange-600"
   }
 
   const popularTags = [
@@ -129,7 +173,7 @@ export default async function BlogPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Article</h2>
           </div>
           
-          <div className="card overflow-hidden group">
+          <Link href={`/blog/${featuredPost.slug}`} className="card overflow-hidden group cursor-pointer">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
                 <Image
@@ -181,14 +225,14 @@ export default async function BlogPage() {
                     </div>
                   </div>
                   
-                  <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                  <div className="inline-flex items-center text-primary-500 font-semibold group-hover:text-primary-600 transition-colors duration-300">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -213,7 +257,7 @@ export default async function BlogPage() {
               
               <div className="grid md:grid-cols-2 gap-8">
                 {blogPosts.slice(1).map((post, index) => (
-                  <div key={post.id} className="card overflow-hidden group">
+                  <Link key={post.id} href={`/blog/${post.slug}`} className="card overflow-hidden group cursor-pointer">
                     <div className="relative">
                       <Image
                         src={post.image.url}
@@ -260,13 +304,13 @@ export default async function BlogPage() {
                           </div>
                         </div>
                         
-                        <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                        <div className="inline-flex items-center text-primary-500 font-semibold group-hover:text-primary-600 transition-colors duration-300">
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
               
