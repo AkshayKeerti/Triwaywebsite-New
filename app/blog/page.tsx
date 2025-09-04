@@ -126,8 +126,8 @@ export default async function BlogPage() {
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
                 <Image
-                  src={featuredPost.image}
-                  alt={featuredPost.title}
+                  src={featuredPost.image.url}
+                  alt={featuredPost.image.alt}
                   width={600}
                   height={400}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
