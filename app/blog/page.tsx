@@ -36,14 +36,16 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const selectedCategory = searchParams.category ? decodeURIComponent(searchParams.category) : undefined
   const selectedTags = searchParams.tags?.split(',').filter(Boolean).map(tag => decodeURIComponent(tag)) || []
 
-  // Debug: Log category values to see the mismatch
-  console.log('Selected Category:', selectedCategory)
-  console.log('All blog post categories:', blogPosts.map(post => post.category))
-  console.log('Category names from categories array:', categories.map(cat => cat.name))
+  // Create a mapping between display names and actual category values
+  const categoryMapping: { [key: string]: string } = {
+    "Design & UX": "Design",
+    "Design": "Design"
+  }
 
   // Apply category filter
   if (selectedCategory) {
-    filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
+    const actualCategory = categoryMapping[selectedCategory] || selectedCategory
+    filteredPosts = filteredPosts.filter(post => post.category === actualCategory)
   }
 
   // Apply tag filter
