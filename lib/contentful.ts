@@ -36,7 +36,16 @@ export interface Category {
 const getImageUrl = (featuredImage: any): string => {
   try {
     if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.file?.url) {
-      return String(featuredImage.fields.file.url)
+      let url = String(featuredImage.fields.file.url)
+      
+      // Ensure the URL has a proper protocol
+      if (url.startsWith('//')) {
+        url = 'https:' + url
+      } else if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url
+      }
+      
+      return url
     }
   } catch (error) {
     console.error('Error parsing image URL:', error)
