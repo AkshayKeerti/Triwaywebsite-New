@@ -36,16 +36,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const selectedCategory = searchParams.category ? decodeURIComponent(searchParams.category) : undefined
   const selectedTags = searchParams.tags?.split(',').filter(Boolean).map(tag => decodeURIComponent(tag)) || []
 
-  // Create a mapping between display names and actual category values
-  const categoryMapping: { [key: string]: string } = {
-    "Design & UX": "Design",
-    "Design": "Design"
-  }
-
   // Apply category filter
   if (selectedCategory) {
-    const actualCategory = categoryMapping[selectedCategory] || selectedCategory
-    filteredPosts = filteredPosts.filter(post => post.category === actualCategory)
+    filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
   }
 
   // Apply tag filter
@@ -222,7 +215,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               return (
                 <Link 
                   key={index} 
-                  href={`/blog?category=${category.name}`} 
+                  href={`/blog?category=${encodeURIComponent(category.name)}`} 
                   className={`card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer ${
                     isActive ? 'ring-2 ring-primary-500 bg-primary-50' : ''
                   }`}
