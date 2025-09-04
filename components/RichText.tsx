@@ -1,8 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { RichTextContent } from 'contentful'
 
 export interface RichTextProps {
-  content?: RichTextContent
+  content?: any
 }
 
 export function RichText(props: RichTextProps) {
