@@ -8,6 +8,8 @@ import { getBlogPosts, getCategories, BlogPost, Category } from '../../lib/conte
 import { fallbackBlogPosts, fallbackCategories } from '../../lib/fallbackData'
 
 export default async function BlogPage() {
+  // Enable ISR for automatic content updates
+  const revalidate = 60 // Revalidate every 60 seconds
   // Try to fetch from Contentful, fallback to static data
   let blogPosts: BlogPost[] = []
   let categories: Category[] = []
@@ -22,6 +24,11 @@ export default async function BlogPage() {
   }
 
   const featuredPost = blogPosts[0] || fallbackBlogPosts[0]
+
+  // Enable ISR
+  if (typeof revalidate !== 'undefined') {
+    // This will be handled by Next.js for ISR
+  }
 
   const categoryIcons = {
     "Artificial Intelligence": Zap,

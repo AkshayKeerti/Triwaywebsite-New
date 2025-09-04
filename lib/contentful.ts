@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 // Contentful CMS client configuration
 const client = createClient({
@@ -67,7 +68,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
       title: String(item.fields.title || ''),
       slug: String(item.fields.slug || ''),
       excerpt: String(item.fields.excerpt || ''),
-      content: String(item.fields.content || ''),
+      content: item.fields.content ? documentToHtmlString(item.fields.content) : '',
       author: String(item.fields.author || ''),
       publishDate: String(item.fields.publishDate || new Date().toISOString()),
       readTime: String(item.fields.readTime || '5 min read'),
@@ -104,7 +105,7 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
       title: String(item.fields.title || ''),
       slug: String(item.fields.slug || ''),
       excerpt: String(item.fields.excerpt || ''),
-      content: String(item.fields.content || ''),
+      content: item.fields.content ? documentToHtmlString(item.fields.content) : '',
       author: String(item.fields.author || ''),
       publishDate: String(item.fields.publishDate || new Date().toISOString()),
       readTime: String(item.fields.readTime || '5 min read'),

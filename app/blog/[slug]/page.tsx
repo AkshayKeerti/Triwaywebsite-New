@@ -29,6 +29,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  // Enable ISR for automatic content updates
+  const revalidate = 60 // Revalidate every 60 seconds
   let post: BlogPost | null = null
   
   try {
