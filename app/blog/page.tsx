@@ -169,7 +169,7 @@ export default async function BlogPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Article</h2>
           </div>
           
-          <Link href={`/blog/${featuredPost.slug}`} className="card overflow-hidden group cursor-pointer">
+          <Link href={`/blog/${featuredPost.slug}`} className="card overflow-hidden group cursor-pointer block">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
                 <Image
