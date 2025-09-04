@@ -32,14 +32,13 @@ export interface Category {
   count: number
 }
 
-// Helper function to safely get image URL with optimization
+// Helper function to safely get image URL
 const getImageUrl = (featuredImage: any): string => {
   try {
     if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.file?.url) {
-      // Use Contentful's optimized image URL with webp format and quality optimization
+      // Use Contentful's base URL - let Next.js handle optimization
       const baseUrl = String(featuredImage.fields.file.url)
-      const optimizedUrl = `https:${baseUrl}?fm=webp&q=80&w=800`
-      return optimizedUrl
+      return 'https:' + baseUrl
     }
   } catch (error) {
     console.error('Error parsing image URL:', error)
