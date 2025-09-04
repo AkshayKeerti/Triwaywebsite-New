@@ -442,8 +442,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         return (
                           <Link
                             key={index}
-                            href={`/blog?tags=${tag}`}
-                            className={`px-3 py-1 rounded-full text-sm transition-colors duration-300 cursor-pointer ${
+                            href={`/blog?tags=${encodeURIComponent(tag)}`}
+                            className={`inline-block px-3 py-1 rounded-full text-sm transition-colors duration-300 cursor-pointer ${
                               isActive 
                                 ? 'bg-primary-500 text-white' 
                                 : 'bg-gray-100 text-gray-700 hover:bg-primary-500 hover:text-white'
@@ -455,12 +455,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       })
                     ) : (
                       popularTags.map((tag, index) => (
-                        <span
+                        <Link
                           key={index}
-                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                          href={`/blog?tags=${encodeURIComponent(tag)}`}
+                          className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-primary-500 hover:text-white transition-colors duration-300 cursor-pointer"
                         >
                           {tag}
-                        </span>
+                        </Link>
                       ))
                     )}
                   </div>
