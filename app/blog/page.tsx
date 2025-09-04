@@ -13,7 +13,6 @@ export const revalidate = 60 // Revalidate every 60 seconds
 interface BlogPageProps {
   searchParams: {
     category?: string
-    tags?: string
   }
 }
 
@@ -34,19 +33,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   // Filter posts based on search parameters
   let filteredPosts = blogPosts
   const selectedCategory = searchParams.category ? decodeURIComponent(searchParams.category) : undefined
-  const selectedTags = searchParams.tags?.split(',').filter(Boolean).map(tag => decodeURIComponent(tag)) || []
 
   // Apply category filter
   if (selectedCategory) {
     filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
   }
 
-  // Apply tag filter
-  if (selectedTags.length > 0) {
-    filteredPosts = filteredPosts.filter(post => 
-      selectedTags.some(tag => post.tags?.includes(tag))
-    )
-  }
+
 
   // Get featured post (always first overall, regardless of filters)
   const featuredPost = blogPosts[0] || fallbackBlogPosts[0]
@@ -56,16 +49,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     .filter(post => post.id !== featuredPost.id)
     .slice(0, 5)
 
-  // Extract all unique tags from posts
-  const allTags = Array.from(new Set(
-    blogPosts.flatMap(post => post.tags || [])
-  )).sort()
 
-  // Get tag counts
-  const tagCounts = allTags.reduce((acc, tag) => {
-    acc[tag] = blogPosts.filter(post => post.tags?.includes(tag)).length
-    return acc
-  }, {} as Record<string, number>)
 
   const categoryIcons = {
     "Artificial Intelligence": Zap,
@@ -133,10 +117,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     "Risk Management": "from-orange-500 to-orange-600"
   }
 
-  const popularTags = [
-    "AI", "Machine Learning", "Cybersecurity", "Cloud", "DevOps", "UX Design", 
-    "Digital Transformation", "IoT", "Blockchain", "API", "Microservices", "Data Analytics"
-  ]
+
 
   return (
     <main className="min-h-screen">
@@ -180,21 +161,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           </div>
           
           {/* Active Filters Display */}
-          {(selectedCategory || selectedTags.length > 0) && (
+          {selectedCategory && (
             <div className="mb-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <span className="text-sm font-medium text-gray-700">Active filters:</span>
-                  {selectedCategory && (
-                    <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm">
-                      Category: {selectedCategory}
-                    </span>
-                  )}
-                  {selectedTags.map(tag => (
-                    <span key={tag} className="bg-secondary-500 text-white px-3 py-1 rounded-full text-sm">
-                      Tag: {tag}
-                    </span>
-                  ))}
+                  <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm">
+                    Category: {selectedCategory}
+                  </span>
                 </div>
                 <Link 
                   href="/blog" 
@@ -324,8 +298,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <div className="lg:w-2/3">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-3xl font-bold text-gray-900">
-                  {selectedCategory || selectedTags.length > 0 ? 'Filtered Articles' : 'Latest Articles'}
-                  {(selectedCategory || selectedTags.length > 0) && (
+                  {selectedCategory ? 'Filtered Articles' : 'Latest Articles'}
+                  {selectedCategory && (
                     <span className="text-lg font-normal text-gray-600 ml-2">
                       ({filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'})
                     </span>
@@ -402,12 +376,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
                     <p className="text-gray-600 mb-6">
-                      {selectedCategory || selectedTags.length > 0 
+                      {selectedCategory 
                         ? `No articles match your current filters. Try adjusting your search criteria.`
                         : 'No articles are available at the moment.'
                       }
                     </p>
-                    {(selectedCategory || selectedTags.length > 0) && (
+                    {selectedCategory && (
                       <Link 
                         href="/blog" 
                         className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium"
@@ -430,42 +404,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             {/* Sidebar */}
             <div className="lg:w-1/3">
               <div className="space-y-8">
-                {/* Popular Tags */}
-                <div className="card p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Popular Tags</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {allTags.length > 0 ? (
-                      allTags.map((tag, index) => {
-                        const isActive = selectedTags.includes(tag)
-                        const count = tagCounts[tag] || 0
-                        
-                        return (
-                          <Link
-                            key={index}
-                            href={`/blog?tags=${encodeURIComponent(tag)}`}
-                            className={`inline-block px-3 py-1 rounded-full text-sm transition-colors duration-300 cursor-pointer ${
-                              isActive 
-                                ? 'bg-primary-500 text-white' 
-                                : 'bg-gray-100 text-gray-700 hover:bg-primary-500 hover:text-white'
-                            }`}
-                          >
-                            {tag} ({count})
-                          </Link>
-                        )
-                      })
-                    ) : (
-                      popularTags.map((tag, index) => (
-                        <Link
-                          key={index}
-                          href={`/blog?tags=${encodeURIComponent(tag)}`}
-                          className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-primary-500 hover:text-white transition-colors duration-300 cursor-pointer"
-                        >
-                          {tag}
-                        </Link>
-                      ))
-                    )}
-                  </div>
-                </div>
+
                 
                 {/* Newsletter Signup */}
                 <div className="card p-6 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
