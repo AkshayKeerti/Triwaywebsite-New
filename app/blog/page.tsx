@@ -38,16 +38,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   // Apply category filter
   if (selectedCategory) {
-    console.log('=== CATEGORY DEBUG ===')
-    console.log('Selected Category:', selectedCategory)
-    console.log('Selected Category Type:', typeof selectedCategory)
-    console.log('Selected Category Length:', selectedCategory.length)
-    console.log('All Blog Post Categories:')
-    blogPosts.forEach((post, index) => {
-      console.log(`Post ${index + 1}: "${post.category}" (type: ${typeof post.category}, length: ${post.category.length})`)
-    })
-    console.log('=== END DEBUG ===')
-    
     filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
   }
 
