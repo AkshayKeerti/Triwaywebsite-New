@@ -32,7 +32,7 @@ export interface Category {
   count: number
 }
 
-// Helper function to safely get image URL
+// Helper function to safely get image URL - using Contentful's official asset URL format
 const getImageUrl = (featuredImage: any): string => {
   try {
     if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.file?.url) {
