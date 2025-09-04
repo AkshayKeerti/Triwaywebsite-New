@@ -14,15 +14,23 @@ export function RichText(props: RichTextProps) {
   const options = {
     renderNode: {
       'embedded-asset-block': (node: any) => {
-        const { url, width, height, description } = node.data.target.fields
+        // Access the file URL correctly from Contentful's asset structure
+        const fileUrl = node.data.target.fields?.file?.url
+        const description = node.data.target.fields?.description
+        const width = node.data.target.fields?.file?.details?.image?.width || 800
+        const height = node.data.target.fields?.file?.details?.image?.height || 600
+        
+        if (!fileUrl) {
+          return <div className="my-6 text-gray-500">Image not available</div>
+        }
         
         return (
           <div className="my-6">
             <Image
-              src={`https:${url}`}
+              src={`https:${fileUrl}`}
               alt={description || 'Rich text image'}
-              width={width || 800}
-              height={height || 600}
+              width={width}
+              height={height}
               className="w-full h-auto rounded-lg"
             />
           </div>
