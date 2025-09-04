@@ -10,7 +10,14 @@ import { fallbackBlogPosts, fallbackCategories } from '../../lib/fallbackData'
 // Enable ISR for automatic content updates
 export const revalidate = 60 // Revalidate every 60 seconds
 
-export default async function BlogPage() {
+interface BlogPageProps {
+  searchParams: {
+    category?: string
+    tags?: string
+  }
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
   // Try to fetch from Contentful, fallback to static data
   let blogPosts: BlogPost[] = []
   let categories: Category[] = []
@@ -24,7 +31,41 @@ export default async function BlogPage() {
     categories = fallbackCategories
   }
 
-  const featuredPost = blogPosts[0] || fallbackBlogPosts[0]
+  // Filter posts based on search parameters
+  let filteredPosts = blogPosts
+  const selectedCategory = searchParams.category
+  const selectedTags = searchParams.tags?.split(',').filter(Boolean) || []
+
+  // Apply category filter
+  if (selectedCategory) {
+    filteredPosts = filteredPosts.filter(post => post.category === selectedCategory)
+  }
+
+  // Apply tag filter
+  if (selectedTags.length > 0) {
+    filteredPosts = filteredPosts.filter(post => 
+      selectedTags.some(tag => post.tags?.includes(tag))
+    )
+  }
+
+  // Get featured post (first post from filtered results, or first overall if no filter)
+  const featuredPost = filteredPosts[0] || blogPosts[0] || fallbackBlogPosts[0]
+  
+  // Get recent posts (excluding featured post)
+  const recentPosts = blogPosts
+    .filter(post => post.id !== featuredPost.id)
+    .slice(0, 5)
+
+  // Extract all unique tags from posts
+  const allTags = Array.from(new Set(
+    blogPosts.flatMap(post => post.tags || [])
+  )).sort()
+
+  // Get tag counts
+  const tagCounts = allTags.reduce((acc, tag) => {
+    acc[tag] = blogPosts.filter(post => post.tags?.includes(tag)).length
+    return acc
+  }, {} as Record<string, number>)
 
   const categoryIcons = {
     "Artificial Intelligence": Zap,
@@ -138,22 +179,60 @@ export default async function BlogPage() {
             <p className="text-gray-600">Explore our content by topic or technology</p>
           </div>
           
+          {/* Active Filters Display */}
+          {(selectedCategory || selectedTags.length > 0) && (
+            <div className="mb-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm font-medium text-gray-700">Active filters:</span>
+                  {selectedCategory && (
+                    <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm">
+                      Category: {selectedCategory}
+                    </span>
+                  )}
+                  {selectedTags.map(tag => (
+                    <span key={tag} className="bg-secondary-500 text-white px-3 py-1 rounded-full text-sm">
+                      Tag: {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link 
+                  href="/blog" 
+                  className="text-primary-500 hover:text-primary-600 text-sm font-medium"
+                >
+                  Clear all filters
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category, index) => {
               const IconComponent = categoryIcons[category.name as keyof typeof categoryIcons] || TrendingUp
               const color = categoryColors[category.name as keyof typeof categoryColors] || "from-gray-500 to-gray-600"
+              const isActive = selectedCategory === category.name
               
               return (
-                <Link key={index} href={`/blog?category=${category.name}`} className="card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <Link 
+                  key={index} 
+                  href={`/blog?category=${category.name}`} 
+                  className={`card p-6 group hover:scale-105 transition-transform duration-300 cursor-pointer ${
+                    isActive ? 'ring-2 ring-primary-500 bg-primary-50' : ''
+                  }`}
+                >
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 bg-gradient-to-r ${color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900">{category.name}</h3>
+                      <h3 className={`text-lg font-bold ${isActive ? 'text-primary-700' : 'text-gray-900'}`}>
+                        {category.name}
+                      </h3>
                       <p className="text-gray-600">{category.count} articles</p>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
+                    <ArrowRight className={`h-5 w-5 transition-colors duration-300 ${
+                      isActive ? 'text-primary-500' : 'text-gray-400 group-hover:text-primary-500'
+                    }`} />
                   </div>
                 </Link>
               )
@@ -244,7 +323,14 @@ export default async function BlogPage() {
             {/* Main Content */}
             <div className="lg:w-2/3">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">Latest Articles</h2>
+                <h2 className="text-3xl font-bold text-gray-900">
+                  {selectedCategory || selectedTags.length > 0 ? 'Filtered Articles' : 'Latest Articles'}
+                  {(selectedCategory || selectedTags.length > 0) && (
+                    <span className="text-lg font-normal text-gray-600 ml-2">
+                      ({filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'})
+                    </span>
+                  )}
+                </h2>
                 <div className="flex items-center space-x-2">
                   <Filter className="h-5 w-5 text-gray-400" />
                   <span className="text-sm text-gray-600">Filter</span>
@@ -252,62 +338,85 @@ export default async function BlogPage() {
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
-                {blogPosts.slice(1).map((post, index) => (
-                  <Link key={post.id} href={`/blog/${post.slug}`} className="card overflow-hidden group cursor-pointer">
-                    <div className="relative">
-                      <Image
-                        src={post.image.url}
-                        alt={post.image.alt}
-                        width={400}
-                        height={250}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {post.category}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{new Date(post.publishDate).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="h-4 w-4" />
-                          <span>{post.readTime}</span>
+                {filteredPosts.slice(1).length > 0 ? (
+                  filteredPosts.slice(1).map((post, index) => (
+                    <Link key={post.id} href={`/blog/${post.slug}`} className="card overflow-hidden group cursor-pointer">
+                      <div className="relative">
+                        <Image
+                          src={post.image.url}
+                          alt={post.image.alt}
+                          width={400}
+                          height={250}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            {post.category}
+                          </span>
                         </div>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
-                      <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4 text-sm text-gray-500">
+                      <div className="p-6">
+                        <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
                           <div className="flex items-center space-x-1">
-                            <Eye className="h-4 w-4" />
-                            <span>{post.views.toLocaleString()}</span>
+                            <Calendar className="h-4 w-4" />
+                            <span>{new Date(post.publishDate).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'long', 
+                              day: 'numeric' 
+                            })}</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <Heart className="h-4 w-4" />
-                            <span>{post.likes}</span>
+                            <Clock className="h-4 w-4" />
+                            <span>{post.readTime}</span>
                           </div>
                         </div>
                         
-                        <div className="inline-flex items-center text-primary-500 font-semibold group-hover:text-primary-600 transition-colors duration-300">
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
+                        <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-4 text-sm text-gray-500">
+                            <div className="flex items-center space-x-1">
+                              <Eye className="h-4 w-4" />
+                              <span>{post.views.toLocaleString()}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <Heart className="h-4 w-4" />
+                              <span>{post.likes}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="inline-flex items-center text-primary-500 font-semibold group-hover:text-primary-600 transition-colors duration-300">
+                            Read More
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </div>
                         </div>
                       </div>
+                    </Link>
+                  ))
+                ) : (
+                  <div className="col-span-2 text-center py-12">
+                    <div className="text-gray-400 mb-4">
+                      <Search className="h-16 w-16 mx-auto" />
                     </div>
-                  </Link>
-                ))}
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+                    <p className="text-gray-600 mb-6">
+                      {selectedCategory || selectedTags.length > 0 
+                        ? `No articles match your current filters. Try adjusting your search criteria.`
+                        : 'No articles are available at the moment.'
+                      }
+                    </p>
+                    {(selectedCategory || selectedTags.length > 0) && (
+                      <Link 
+                        href="/blog" 
+                        className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium"
+                      >
+                        Clear all filters
+                      </Link>
+                    )}
+                  </div>
+                )}
               </div>
               
               {/* Load More Button */}
@@ -325,14 +434,35 @@ export default async function BlogPage() {
                 <div className="card p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Popular Tags</h3>
                   <div className="flex flex-wrap gap-2">
-                    {popularTags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-primary-500 hover:text-white transition-colors duration-300 cursor-pointer"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {allTags.length > 0 ? (
+                      allTags.map((tag, index) => {
+                        const isActive = selectedTags.includes(tag)
+                        const count = tagCounts[tag] || 0
+                        
+                        return (
+                          <Link
+                            key={index}
+                            href={`/blog?tags=${tag}`}
+                            className={`px-3 py-1 rounded-full text-sm transition-colors duration-300 cursor-pointer ${
+                              isActive 
+                                ? 'bg-primary-500 text-white' 
+                                : 'bg-gray-100 text-gray-700 hover:bg-primary-500 hover:text-white'
+                            }`}
+                          >
+                            {tag} ({count})
+                          </Link>
+                        )
+                      })
+                    ) : (
+                      popularTags.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))
+                    )}
                   </div>
                 </div>
                 
@@ -356,8 +486,8 @@ export default async function BlogPage() {
                 <div className="card p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Recent Posts</h3>
                   <div className="space-y-4">
-                    {blogPosts.slice(0, 3).map((post, index) => (
-                      <div key={index} className="flex space-x-3">
+                    {recentPosts.map((post, index) => (
+                      <Link key={index} href={`/blog/${post.slug}`} className="flex space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors duration-200">
                         <Image
                           src={post.image.url}
                           alt={post.image.alt}
@@ -366,14 +496,16 @@ export default async function BlogPage() {
                           className="w-15 h-15 object-cover rounded-lg"
                         />
                         <div>
-                          <h4 className="font-semibold text-gray-900 text-sm line-clamp-2">{post.title}</h4>
+                          <h4 className="font-semibold text-gray-900 text-sm line-clamp-2 hover:text-primary-500 transition-colors duration-200">
+                            {post.title}
+                          </h4>
                           <p className="text-gray-500 text-xs">{new Date(post.publishDate).toLocaleDateString('en-US', { 
                             year: 'numeric', 
                             month: 'short', 
                             day: 'numeric' 
                           })}</p>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
