@@ -1,5 +1,5 @@
 import { createClient } from 'contentful'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 // Contentful CMS client configuration
 const client = createClient({
@@ -12,7 +12,7 @@ export interface BlogPost {
   title: string
   slug: string
   excerpt: string
-  content: string
+  content: any // Rich text content from Contentful
   author: string
   publishDate: string
   readTime: string
@@ -32,13 +32,14 @@ export interface Category {
   count: number
 }
 
-// Helper function to safely get image URL - using Contentful's official asset URL format
+// Helper function to safely get image URL with optimization
 const getImageUrl = (featuredImage: any): string => {
   try {
     if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.file?.url) {
-      // Contentful asset URLs should be prefixed with 'https:'
-      const url = String(featuredImage.fields.file.url)
-      return 'https:' + url
+      // Use Contentful's optimized image URL with webp format and quality optimization
+      const baseUrl = String(featuredImage.fields.file.url)
+      const optimizedUrl = `https:${baseUrl}?fm=webp&q=80&w=800`
+      return optimizedUrl
     }
   } catch (error) {
     console.error('Error parsing image URL:', error)
@@ -70,7 +71,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
       title: String(item.fields.title || ''),
       slug: String(item.fields.slug || ''),
       excerpt: String(item.fields.excerpt || ''),
-      content: item.fields.content && typeof item.fields.content === 'object' ? documentToHtmlString(item.fields.content as any) : String(item.fields.content || ''),
+      content: item.fields.content && typeof item.fields.content === 'object' ? item.fields.content : String(item.fields.content || ''),
       author: String(item.fields.author || ''),
       publishDate: String(item.fields.publishDate || new Date().toISOString()),
       readTime: String(item.fields.readTime || '5 min read'),
@@ -107,7 +108,7 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
       title: String(item.fields.title || ''),
       slug: String(item.fields.slug || ''),
       excerpt: String(item.fields.excerpt || ''),
-      content: item.fields.content && typeof item.fields.content === 'object' ? documentToHtmlString(item.fields.content as any) : String(item.fields.content || ''),
+      content: item.fields.content && typeof item.fields.content === 'object' ? item.fields.content : String(item.fields.content || ''),
       author: String(item.fields.author || ''),
       publishDate: String(item.fields.publishDate || new Date().toISOString()),
       readTime: String(item.fields.readTime || '5 min read'),

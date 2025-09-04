@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { getBlogPostBySlug, getBlogPosts, BlogPost } from '../../../lib/contentful'
 import { fallbackBlogPosts } from '../../../lib/fallbackData'
 import { notFound } from 'next/navigation'
+import { RichText } from '../../../components/RichText'
 
 interface BlogPostPageProps {
   params: {
@@ -135,9 +136,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article Content */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          </div>
+          <RichText content={post.content} />
           
           {/* Tags */}
           {post.tags.length > 0 && (
