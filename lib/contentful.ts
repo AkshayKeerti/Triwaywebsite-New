@@ -31,6 +31,30 @@ export interface Category {
   count: number
 }
 
+// Helper function to safely get image URL
+const getImageUrl = (featuredImage: any): string => {
+  try {
+    if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.file?.url) {
+      return String(featuredImage.fields.file.url)
+    }
+  } catch (error) {
+    console.error('Error parsing image URL:', error)
+  }
+  return '/dubai.png'
+}
+
+// Helper function to safely get image alt text
+const getImageAlt = (featuredImage: any, title: any): string => {
+  try {
+    if (featuredImage && typeof featuredImage === 'object' && featuredImage.fields?.description) {
+      return String(featuredImage.fields.description)
+    }
+  } catch (error) {
+    console.error('Error parsing image alt:', error)
+  }
+  return String(title || 'Blog post image')
+}
+
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   try {
     const response = await client.getEntries({
@@ -40,21 +64,21 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
 
     return response.items.map((item: any) => ({
       id: item.sys.id,
-      title: item.fields.title || '',
-      slug: item.fields.slug || '',
-      excerpt: item.fields.excerpt || '',
-      content: item.fields.content || '',
-      author: item.fields.author || '',
-      publishDate: item.fields.publishDate || new Date().toISOString(),
-      readTime: item.fields.readTime || '5 min read',
-      category: item.fields.category || 'General',
+      title: String(item.fields.title || ''),
+      slug: String(item.fields.slug || ''),
+      excerpt: String(item.fields.excerpt || ''),
+      content: String(item.fields.content || ''),
+      author: String(item.fields.author || ''),
+      publishDate: String(item.fields.publishDate || new Date().toISOString()),
+      readTime: String(item.fields.readTime || '5 min read'),
+      category: String(item.fields.category || 'General'),
       image: {
-        url: item.fields.featuredImage?.fields?.file?.url || '/dubai.png',
-        alt: item.fields.featuredImage?.fields?.description || item.fields.title || 'Blog post image',
+        url: getImageUrl(item.fields.featuredImage),
+        alt: getImageAlt(item.fields.featuredImage, item.fields.title),
       },
-      views: item.fields.views || 0,
-      likes: item.fields.likes || 0,
-      tags: item.fields.tags || [],
+      views: Number(item.fields.views || 0),
+      likes: Number(item.fields.likes || 0),
+      tags: Array.isArray(item.fields.tags) ? item.fields.tags.map(String) : [],
     }))
   } catch (error) {
     console.error('Error fetching blog posts:', error)
@@ -77,21 +101,21 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
     const item = response.items[0]
     return {
       id: item.sys.id,
-      title: item.fields.title || '',
-      slug: item.fields.slug || '',
-      excerpt: item.fields.excerpt || '',
-      content: item.fields.content || '',
-      author: item.fields.author || '',
-      publishDate: item.fields.publishDate || new Date().toISOString(),
-      readTime: item.fields.readTime || '5 min read',
-      category: item.fields.category || 'General',
+      title: String(item.fields.title || ''),
+      slug: String(item.fields.slug || ''),
+      excerpt: String(item.fields.excerpt || ''),
+      content: String(item.fields.content || ''),
+      author: String(item.fields.author || ''),
+      publishDate: String(item.fields.publishDate || new Date().toISOString()),
+      readTime: String(item.fields.readTime || '5 min read'),
+      category: String(item.fields.category || 'General'),
       image: {
-        url: item.fields.featuredImage?.fields?.file?.url || '/dubai.png',
-        alt: item.fields.featuredImage?.fields?.description || item.fields.title || 'Blog post image',
+        url: getImageUrl(item.fields.featuredImage),
+        alt: getImageAlt(item.fields.featuredImage, item.fields.title),
       },
-      views: item.fields.views || 0,
-      likes: item.fields.likes || 0,
-      tags: item.fields.tags || [],
+      views: Number(item.fields.views || 0),
+      likes: Number(item.fields.likes || 0),
+      tags: Array.isArray(item.fields.tags) ? item.fields.tags.map(String) : [],
     }
   } catch (error) {
     console.error('Error fetching blog post:', error)
