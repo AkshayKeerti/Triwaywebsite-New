@@ -169,7 +169,7 @@ export default async function BlogPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Article</h2>
           </div>
           
-          <div className="card overflow-hidden group">
+          <Link href={`/blog/${featuredPost.slug}`} className="card overflow-hidden group cursor-pointer">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
                 <Image
@@ -221,14 +221,14 @@ export default async function BlogPage() {
                     </div>
                   </div>
                   
-                  <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-600 transition-colors duration-300">
+                  <div className="inline-flex items-center text-primary-500 font-semibold group-hover:text-primary-600 transition-colors duration-300">
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
